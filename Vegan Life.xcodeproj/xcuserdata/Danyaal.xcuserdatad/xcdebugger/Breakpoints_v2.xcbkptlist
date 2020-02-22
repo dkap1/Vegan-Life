@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "C03CE156-3B47-417B-80A2-8ADD24149A5E"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "32DFD818-5772-4C78-BFA4-9D7B2D131E50"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Vegan Life/RecipeCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "RecipeCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "32DFD818-5772-4C78-BFA4-9D7B2D131E50 - 4aea2349ef96f539"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vegan_Life.RecipeCell.recipeImageView.getter : Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "Vegan Life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Danyaal/Desktop/Vegan%20Life/Vegan%20Life/RecipeCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "32DFD818-5772-4C78-BFA4-9D7B2D131E50 - 3af835ddd3d1a935"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vegan_Life.RecipeCell.recipeImageView.setter : Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "Vegan Life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Danyaal/Desktop/Vegan%20Life/Vegan%20Life/RecipeCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "32DFD818-5772-4C78-BFA4-9D7B2D131E50 - f4ed6224c1bd046"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vegan_Life.RecipeCell.recipeImageView.modify : Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "Vegan Life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Danyaal/Desktop/Vegan%20Life/Vegan%20Life/RecipeCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "67">
+               </Location>
+               <Location
+                  uuid = "32DFD818-5772-4C78-BFA4-9D7B2D131E50 - b2cb45453bc57b16"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vegan_Life.RecipeCell.recipeImageView.modify : Swift.Optional&lt;__C.UIImageView&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Vegan Life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Danyaal/Desktop/Vegan%20Life/Vegan%20Life/RecipeCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "32DFD818-5772-4C78-BFA4-9D7B2D131E50 - 586cb4a0e4bbefb7"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vegan_Life.RecipeCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; Vegan_Life.RecipeCell"
+                  moduleName = "Vegan Life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Danyaal/Desktop/Vegan%20Life/Vegan%20Life/RecipeCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "32DFD818-5772-4C78-BFA4-9D7B2D131E50 - b8549a08f84bbbf8"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vegan_Life.RecipeCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Vegan_Life.RecipeCell&gt;"
+                  moduleName = "Vegan Life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Danyaal/Desktop/Vegan%20Life/Vegan%20Life/RecipeCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

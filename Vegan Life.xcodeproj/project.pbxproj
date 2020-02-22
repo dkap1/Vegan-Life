@@ -16,6 +16,14 @@
 		F9412ABE23FDD69800C33F81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9412ABC23FDD69800C33F81 /* LaunchScreen.storyboard */; };
 		F9412AC923FDD69900C33F81 /* Vegan_LifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AC823FDD69900C33F81 /* Vegan_LifeTests.swift */; };
 		F9412AD423FDD69900C33F81 /* Vegan_LifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AD323FDD69900C33F81 /* Vegan_LifeUITests.swift */; };
+		F9412AE824014CD300C33F81 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AE724014CD300C33F81 /* RecipeCell.swift */; };
+		F9412AF12401597200C33F81 /* vegankebab.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9412AEB2401597100C33F81 /* vegankebab.jpg */; };
+		F9412AF22401597200C33F81 /* veganpizza.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9412AEC2401597100C33F81 /* veganpizza.jpg */; };
+		F9412AF32401597200C33F81 /* chickennuggets.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9412AED2401597100C33F81 /* chickennuggets.jpg */; };
+		F9412AF42401597200C33F81 /* fishandchips.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9412AEE2401597100C33F81 /* fishandchips.jpg */; };
+		F9412AF52401597200C33F81 /* sweetandsour.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9412AEF2401597100C33F81 /* sweetandsour.jpg */; };
+		F9412AF62401597200C33F81 /* chickencurry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9412AF02401597200C33F81 /* chickencurry.jpg */; };
+		F9412AF82401BAD000C33F81 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AF72401BAD000C33F81 /* VideoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +59,14 @@
 		F9412ACF23FDD69900C33F81 /* Vegan LifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Vegan LifeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9412AD323FDD69900C33F81 /* Vegan_LifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vegan_LifeUITests.swift; sourceTree = "<group>"; };
 		F9412AD523FDD69900C33F81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9412AE724014CD300C33F81 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
+		F9412AEB2401597100C33F81 /* vegankebab.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vegankebab.jpg; sourceTree = SOURCE_ROOT; };
+		F9412AEC2401597100C33F81 /* veganpizza.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = veganpizza.jpg; sourceTree = SOURCE_ROOT; };
+		F9412AED2401597100C33F81 /* chickennuggets.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chickennuggets.jpg; sourceTree = SOURCE_ROOT; };
+		F9412AEE2401597100C33F81 /* fishandchips.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fishandchips.jpg; sourceTree = SOURCE_ROOT; };
+		F9412AEF2401597100C33F81 /* sweetandsour.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sweetandsour.jpg; sourceTree = SOURCE_ROOT; };
+		F9412AF02401597200C33F81 /* chickencurry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chickencurry.jpg; sourceTree = SOURCE_ROOT; };
+		F9412AF72401BAD000C33F81 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,11 +120,19 @@
 				F9412AAF23FDD69100C33F81 /* AppDelegate.swift */,
 				F9412AB123FDD69100C33F81 /* SceneDelegate.swift */,
 				F9412AB323FDD69100C33F81 /* FirstViewController.swift */,
+				F9412AF02401597200C33F81 /* chickencurry.jpg */,
+				F9412AED2401597100C33F81 /* chickennuggets.jpg */,
+				F9412AEE2401597100C33F81 /* fishandchips.jpg */,
+				F9412AEF2401597100C33F81 /* sweetandsour.jpg */,
+				F9412AEB2401597100C33F81 /* vegankebab.jpg */,
+				F9412AEC2401597100C33F81 /* veganpizza.jpg */,
 				F9412AB523FDD69100C33F81 /* SecondViewController.swift */,
 				F9412AB723FDD69100C33F81 /* Main.storyboard */,
+				F9412AE724014CD300C33F81 /* RecipeCell.swift */,
 				F9412ABA23FDD69800C33F81 /* Assets.xcassets */,
 				F9412ABC23FDD69800C33F81 /* LaunchScreen.storyboard */,
 				F9412ABF23FDD69900C33F81 /* Info.plist */,
+				F9412AF72401BAD000C33F81 /* VideoViewController.swift */,
 			);
 			path = "Vegan Life";
 			sourceTree = "<group>";
@@ -237,7 +261,13 @@
 			files = (
 				F9412ABE23FDD69800C33F81 /* LaunchScreen.storyboard in Resources */,
 				F9412ABB23FDD69800C33F81 /* Assets.xcassets in Resources */,
+				F9412AF62401597200C33F81 /* chickencurry.jpg in Resources */,
+				F9412AF42401597200C33F81 /* fishandchips.jpg in Resources */,
+				F9412AF52401597200C33F81 /* sweetandsour.jpg in Resources */,
 				F9412AB923FDD69100C33F81 /* Main.storyboard in Resources */,
+				F9412AF32401597200C33F81 /* chickennuggets.jpg in Resources */,
+				F9412AF22401597200C33F81 /* veganpizza.jpg in Resources */,
+				F9412AF12401597200C33F81 /* vegankebab.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +292,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9412AE824014CD300C33F81 /* RecipeCell.swift in Sources */,
+				F9412AF82401BAD000C33F81 /* VideoViewController.swift in Sources */,
 				F9412AB623FDD69100C33F81 /* SecondViewController.swift in Sources */,
 				F9412AB423FDD69100C33F81 /* FirstViewController.swift in Sources */,
 				F9412AB023FDD69100C33F81 /* AppDelegate.swift in Sources */,
