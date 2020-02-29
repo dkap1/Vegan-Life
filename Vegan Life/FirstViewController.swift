@@ -4,7 +4,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
      var recipes:[Recipe] = []
      var recipe:Recipe = Recipe()
- 
+    
+
     
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -58,13 +59,19 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let recipe10 = Recipe()
         recipe10.Key = "jsgPy-K8ogk"
-        recipe10.Title = "Sheppards Pie"
+        recipe10.Title = "Shepards Pie"
         recipes.append(recipe10)
+    
+   
+            
+        }
+        
 
-}
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipes.count
+        
     }
    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,7 +80,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.recipeTitleVideo.text = recipes[indexPath.row].Title
         let url = "https://img.youtube.com/vi/\(recipes[indexPath.row].Key)/0.jpg"
         cell.recipeImageView.downloaded(from: url)
+       
+   //      cell.heartButton.tag = indexPath.row
+    //     cell.heartButton.addTarget(RecipeCell(), action: "heartClick", for: UIControl.Event.touchUpInside)
         
+       
         return cell
     }
     
@@ -101,6 +112,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         var Key:String = " "
         var Title:String = " "
+        var image = UIImage(contentsOfFile: "")
     }
 
 
