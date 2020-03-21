@@ -4,7 +4,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
      var recipes:[Recipe] = []
      var recipe:Recipe = Recipe()
-    
+     
+
 
     
     override func viewDidLoad() {
@@ -62,7 +63,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         recipe10.Title = "Shepards Pie"
         recipes.append(recipe10)
     
-   
+        
+                
             
         }
         
@@ -106,7 +108,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 }
     
     
-    
+   
 
     class Recipe{
         
@@ -135,4 +137,6 @@ extension UIImageView {
         guard let url = URL(string: link) else { return }
         downloaded(from: url, contentMode: mode)
 }
+
+     
 }

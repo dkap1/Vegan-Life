@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F904F300240AF31500953458 /* DanyaalKapadiaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F2FF240AF31500953458 /* DanyaalKapadiaTableViewCell.swift */; };
+		F904F3082411B8E300953458 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F3072411B8E300953458 /* QuestionViewController.swift */; };
+		F904F30A2411B90900953458 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F3092411B90900953458 /* ResultsViewController.swift */; };
+		F904F30C2411B92D00953458 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F30B2411B92D00953458 /* IntroductionViewController.swift */; };
+		F904F30E2411C25400953458 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F30D2411C25400953458 /* QuestionData.swift */; };
+		F904F3102414651E00953458 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F30F2414651D00953458 /* BaseView.swift */; };
+		F904F3122414663500953458 /* DetailsFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F3112414663500953458 /* DetailsFoodView.swift */; };
+		F904F314241467ED00953458 /* DetailsFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F313241467ED00953458 /* DetailsFoodViewController.swift */; };
+		F904F31A241469F300953458 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F319241469F300953458 /* LocationView.swift */; };
+		F904F324241C2BD000953458 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F323241C2BD000953458 /* LocationService.swift */; };
+		F904F328241CFFB800953458 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F327241CFFB800953458 /* NetworkService.swift */; };
 		F9412AB023FDD69100C33F81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AAF23FDD69100C33F81 /* AppDelegate.swift */; };
 		F9412AB223FDD69100C33F81 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AB123FDD69100C33F81 /* SceneDelegate.swift */; };
 		F9412AB423FDD69100C33F81 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AB323FDD69100C33F81 /* FirstViewController.swift */; };
@@ -46,7 +55,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F904F2FF240AF31500953458 /* DanyaalKapadiaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DanyaalKapadiaTableViewCell.swift; sourceTree = "<group>"; };
+		F904F3072411B8E300953458 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		F904F3092411B90900953458 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		F904F30B2411B92D00953458 /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
+		F904F30D2411C25400953458 /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
+		F904F30F2414651D00953458 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		F904F3112414663500953458 /* DetailsFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFoodView.swift; sourceTree = "<group>"; };
+		F904F313241467ED00953458 /* DetailsFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFoodViewController.swift; sourceTree = "<group>"; };
+		F904F319241469F300953458 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		F904F323241C2BD000953458 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		F904F327241CFFB800953458 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F9412AAC23FDD69100C33F81 /* Vegan Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vegan Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9412AAF23FDD69100C33F81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9412AB123FDD69100C33F81 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +116,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E448BC97FC826F634524080 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F9412AA323FDD69100C33F81 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +130,7 @@
 				F9412AC723FDD69900C33F81 /* Vegan LifeTests */,
 				F9412AD223FDD69900C33F81 /* Vegan LifeUITests */,
 				F9412AAD23FDD69100C33F81 /* Products */,
+				4E448BC97FC826F634524080 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,13 +158,22 @@
 				F9412AEC2401597100C33F81 /* veganpizza.jpg */,
 				F9412AB523FDD69100C33F81 /* SecondViewController.swift */,
 				F9412AB723FDD69100C33F81 /* Main.storyboard */,
+				F904F319241469F300953458 /* LocationView.swift */,
 				F9412AF92409494700C33F81 /* RequestRecipeViewController.swift */,
 				F9412AE724014CD300C33F81 /* RecipeCell.swift */,
 				F9412ABA23FDD69800C33F81 /* Assets.xcassets */,
 				F9412ABC23FDD69800C33F81 /* LaunchScreen.storyboard */,
 				F9412ABF23FDD69900C33F81 /* Info.plist */,
 				F9412AF72401BAD000C33F81 /* VideoViewController.swift */,
-				F904F2FF240AF31500953458 /* DanyaalKapadiaTableViewCell.swift */,
+				F904F3072411B8E300953458 /* QuestionViewController.swift */,
+				F904F3092411B90900953458 /* ResultsViewController.swift */,
+				F904F30B2411B92D00953458 /* IntroductionViewController.swift */,
+				F904F30D2411C25400953458 /* QuestionData.swift */,
+				F904F30F2414651D00953458 /* BaseView.swift */,
+				F904F3112414663500953458 /* DetailsFoodView.swift */,
+				F904F313241467ED00953458 /* DetailsFoodViewController.swift */,
+				F904F323241C2BD000953458 /* LocationService.swift */,
+				F904F327241CFFB800953458 /* NetworkService.swift */,
 			);
 			path = "Vegan Life";
 			sourceTree = "<group>";
@@ -177,6 +212,8 @@
 			dependencies = (
 			);
 			name = "Vegan Life";
+			packageProductDependencies = (
+			);
 			productName = "Vegan Life";
 			productReference = F9412AAC23FDD69100C33F81 /* Vegan Life.app */;
 			productType = "com.apple.product-type.application";
@@ -249,6 +286,8 @@
 				Base,
 			);
 			mainGroup = F9412AA323FDD69100C33F81;
+			packageReferences = (
+			);
 			productRefGroup = F9412AAD23FDD69100C33F81 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -301,11 +340,20 @@
 				F9412AE824014CD300C33F81 /* RecipeCell.swift in Sources */,
 				F9412AF82401BAD000C33F81 /* VideoViewController.swift in Sources */,
 				F9412AB623FDD69100C33F81 /* SecondViewController.swift in Sources */,
+				F904F3102414651E00953458 /* BaseView.swift in Sources */,
+				F904F324241C2BD000953458 /* LocationService.swift in Sources */,
+				F904F31A241469F300953458 /* LocationView.swift in Sources */,
 				F9412AFA2409494700C33F81 /* RequestRecipeViewController.swift in Sources */,
-				F904F300240AF31500953458 /* DanyaalKapadiaTableViewCell.swift in Sources */,
 				F9412AB423FDD69100C33F81 /* FirstViewController.swift in Sources */,
+				F904F328241CFFB800953458 /* NetworkService.swift in Sources */,
+				F904F30A2411B90900953458 /* ResultsViewController.swift in Sources */,
+				F904F30C2411B92D00953458 /* IntroductionViewController.swift in Sources */,
 				F9412AB023FDD69100C33F81 /* AppDelegate.swift in Sources */,
+				F904F3122414663500953458 /* DetailsFoodView.swift in Sources */,
+				F904F3082411B8E300953458 /* QuestionViewController.swift in Sources */,
 				F9412AB223FDD69100C33F81 /* SceneDelegate.swift in Sources */,
+				F904F30E2411C25400953458 /* QuestionData.swift in Sources */,
+				F904F314241467ED00953458 /* DetailsFoodViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
