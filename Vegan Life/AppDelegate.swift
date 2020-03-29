@@ -7,35 +7,19 @@
 //
 
 import UIKit
-//import Moya
+import GoogleMaps
+
+let googleApiKey = "AIzaSyBNpskf35UDdUKhG-Wq0KZSskmQ6sdK5-I"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    let window = UIWindow()
-    let locationService = LocationService()
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
+    var window: UIWindow?
     
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-       
-     //   switch locationService.status {
-     //   case .notDetermined, .denied, .restricted:
-       //     let locationViewController = storyboard.instantiateViewController(withIdentifier: "LocationViewController") as? LocationViewController
-         //  locationViewController?.locationService = locationService
-           // window.rootViewController = locationViewController
-       // default:
-         // assertionFailure()
-         
         
-       // }
-        
-   //    window.makeKeyAndVisible()
+        GMSServices.provideAPIKey(googleApiKey)
         return true
+        
     }
-
-
 }
-

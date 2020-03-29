@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F345DAC618C8CB25D1B072A /* Pods_Vegan_Life.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34656D5264B49987977F5010 /* Pods_Vegan_Life.framework */; };
 		F904F3082411B8E300953458 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F3072411B8E300953458 /* QuestionViewController.swift */; };
 		F904F30A2411B90900953458 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F3092411B90900953458 /* ResultsViewController.swift */; };
 		F904F30C2411B92D00953458 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F30B2411B92D00953458 /* IntroductionViewController.swift */; };
@@ -17,6 +18,15 @@
 		F904F31A241469F300953458 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F319241469F300953458 /* LocationView.swift */; };
 		F904F324241C2BD000953458 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F323241C2BD000953458 /* LocationService.swift */; };
 		F904F328241CFFB800953458 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904F327241CFFB800953458 /* NetworkService.swift */; };
+		F90FDC50242B9246007DDF17 /* MKPlacemark+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90FDC4F242B9246007DDF17 /* MKPlacemark+Extension.swift */; };
+		F90FDC52242B9364007DDF17 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90FDC51242B9364007DDF17 /* PlaceAnnotation.swift */; };
+		F90FDC54242B95E2007DDF17 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90FDC53242B95E2007DDF17 /* SearchResultTableViewController.swift */; };
+		F90FDC56242BED65007DDF17 /* NewMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90FDC55242BED65007DDF17 /* NewMapViewController.swift */; };
+		F90FDC58242BF208007DDF17 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90FDC57242BF208007DDF17 /* LocationSearchTable.swift */; };
+		F930422A2430FC2800171147 /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93042292430FC2800171147 /* ServicesViewController.swift */; };
+		F930422C2430FEA500171147 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930422B2430FEA500171147 /* HomeModel.swift */; };
+		F930422E2430FED700171147 /* ServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930422D2430FED700171147 /* ServicesModel.swift */; };
+		F93042302431589100171147 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F930422F2431589100171147 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F9412AB023FDD69100C33F81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AAF23FDD69100C33F81 /* AppDelegate.swift */; };
 		F9412AB223FDD69100C33F81 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AB123FDD69100C33F81 /* SceneDelegate.swift */; };
 		F9412AB423FDD69100C33F81 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AB323FDD69100C33F81 /* FirstViewController.swift */; };
@@ -35,6 +45,12 @@
 		F9412AF62401597200C33F81 /* chickencurry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9412AF02401597200C33F81 /* chickencurry.jpg */; };
 		F9412AF82401BAD000C33F81 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AF72401BAD000C33F81 /* VideoViewController.swift */; };
 		F9412AFA2409494700C33F81 /* RequestRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AF92409494700C33F81 /* RequestRecipeViewController.swift */; };
+		F96F20B42427C7A3009894DF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96F20B32427C7A3009894DF /* UIViewExtension.swift */; };
+		F96F20B62427CB78009894DF /* PlaceMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96F20B52427CB78009894DF /* PlaceMaker.swift */; };
+		F96F20B82427D506009894DF /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96F20B72427D506009894DF /* GooglePlace.swift */; };
+		F96F20BA2427D8FA009894DF /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96F20B92427D8FA009894DF /* GoogleDataProvider.swift */; };
+		F96F20BC242816B4009894DF /* TypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96F20BB242816B4009894DF /* TypesTableViewController.swift */; };
+		F96F20BE242B5DA2009894DF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96F20BD242B5DA2009894DF /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +71,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		110B8E972D13DEE0C5A40862 /* Pods-Vegan Life.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vegan Life.release.xcconfig"; path = "Target Support Files/Pods-Vegan Life/Pods-Vegan Life.release.xcconfig"; sourceTree = "<group>"; };
+		34656D5264B49987977F5010 /* Pods_Vegan_Life.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vegan_Life.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85FB84F379C23607F3D00C9E /* Pods-Vegan Life.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vegan Life.debug.xcconfig"; path = "Target Support Files/Pods-Vegan Life/Pods-Vegan Life.debug.xcconfig"; sourceTree = "<group>"; };
 		F904F3072411B8E300953458 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		F904F3092411B90900953458 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		F904F30B2411B92D00953458 /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +84,15 @@
 		F904F319241469F300953458 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		F904F323241C2BD000953458 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		F904F327241CFFB800953458 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F90FDC4F242B9246007DDF17 /* MKPlacemark+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPlacemark+Extension.swift"; sourceTree = "<group>"; };
+		F90FDC51242B9364007DDF17 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
+		F90FDC53242B95E2007DDF17 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
+		F90FDC55242BED65007DDF17 /* NewMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMapViewController.swift; sourceTree = "<group>"; };
+		F90FDC57242BF208007DDF17 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
+		F93042292430FC2800171147 /* ServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
+		F930422B2430FEA500171147 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		F930422D2430FED700171147 /* ServicesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesModel.swift; sourceTree = "<group>"; };
+		F930422F2431589100171147 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9412AAC23FDD69100C33F81 /* Vegan Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vegan Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9412AAF23FDD69100C33F81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9412AB123FDD69100C33F81 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +117,12 @@
 		F9412AF02401597200C33F81 /* chickencurry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chickencurry.jpg; sourceTree = SOURCE_ROOT; };
 		F9412AF72401BAD000C33F81 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		F9412AF92409494700C33F81 /* RequestRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRecipeViewController.swift; sourceTree = "<group>"; };
+		F96F20B32427C7A3009894DF /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		F96F20B52427CB78009894DF /* PlaceMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMaker.swift; sourceTree = "<group>"; };
+		F96F20B72427D506009894DF /* GooglePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
+		F96F20B92427D8FA009894DF /* GoogleDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDataProvider.swift; sourceTree = "<group>"; };
+		F96F20BB242816B4009894DF /* TypesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesTableViewController.swift; sourceTree = "<group>"; };
+		F96F20BD242B5DA2009894DF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +130,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F93042302431589100171147 /* SwiftyJSON.framework in Frameworks */,
+				4F345DAC618C8CB25D1B072A /* Pods_Vegan_Life.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,9 +152,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4E448BC97FC826F634524080 /* Pods */ = {
+		8711E3770C084CEADFB05EBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F930422F2431589100171147 /* SwiftyJSON.framework */,
+				34656D5264B49987977F5010 /* Pods_Vegan_Life.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C84AD330D4A482F8EC28BA67 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				85FB84F379C23607F3D00C9E /* Pods-Vegan Life.debug.xcconfig */,
+				110B8E972D13DEE0C5A40862 /* Pods-Vegan Life.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -130,7 +177,8 @@
 				F9412AC723FDD69900C33F81 /* Vegan LifeTests */,
 				F9412AD223FDD69900C33F81 /* Vegan LifeUITests */,
 				F9412AAD23FDD69100C33F81 /* Products */,
-				4E448BC97FC826F634524080 /* Pods */,
+				C84AD330D4A482F8EC28BA67 /* Pods */,
+				8711E3770C084CEADFB05EBB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,6 +222,20 @@
 				F904F313241467ED00953458 /* DetailsFoodViewController.swift */,
 				F904F323241C2BD000953458 /* LocationService.swift */,
 				F904F327241CFFB800953458 /* NetworkService.swift */,
+				F96F20B32427C7A3009894DF /* UIViewExtension.swift */,
+				F96F20B52427CB78009894DF /* PlaceMaker.swift */,
+				F96F20B72427D506009894DF /* GooglePlace.swift */,
+				F96F20B92427D8FA009894DF /* GoogleDataProvider.swift */,
+				F96F20BB242816B4009894DF /* TypesTableViewController.swift */,
+				F96F20BD242B5DA2009894DF /* MapViewController.swift */,
+				F90FDC4F242B9246007DDF17 /* MKPlacemark+Extension.swift */,
+				F90FDC51242B9364007DDF17 /* PlaceAnnotation.swift */,
+				F90FDC53242B95E2007DDF17 /* SearchResultTableViewController.swift */,
+				F90FDC55242BED65007DDF17 /* NewMapViewController.swift */,
+				F90FDC57242BF208007DDF17 /* LocationSearchTable.swift */,
+				F93042292430FC2800171147 /* ServicesViewController.swift */,
+				F930422B2430FEA500171147 /* HomeModel.swift */,
+				F930422D2430FED700171147 /* ServicesModel.swift */,
 			);
 			path = "Vegan Life";
 			sourceTree = "<group>";
@@ -203,17 +265,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9412AD823FDD69900C33F81 /* Build configuration list for PBXNativeTarget "Vegan Life" */;
 			buildPhases = (
+				E78AF2FBCBED396F6A867C0D /* [CP] Check Pods Manifest.lock */,
 				F9412AA823FDD69100C33F81 /* Sources */,
 				F9412AA923FDD69100C33F81 /* Frameworks */,
 				F9412AAA23FDD69100C33F81 /* Resources */,
+				4820489FB16DF6E4E1A7A8FE /* [CP] Embed Pods Frameworks */,
+				1DEBD8E1F8222AF18195EDD8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Vegan Life";
-			packageProductDependencies = (
-			);
 			productName = "Vegan Life";
 			productReference = F9412AAC23FDD69100C33F81 /* Vegan Life.app */;
 			productType = "com.apple.product-type.application";
@@ -286,8 +349,6 @@
 				Base,
 			);
 			mainGroup = F9412AA323FDD69100C33F81;
-			packageReferences = (
-			);
 			productRefGroup = F9412AAD23FDD69100C33F81 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -332,6 +393,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1DEBD8E1F8222AF18195EDD8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Vegan Life/Pods-Vegan Life-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Vegan Life/Pods-Vegan Life-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Vegan Life/Pods-Vegan Life-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4820489FB16DF6E4E1A7A8FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Vegan Life/Pods-Vegan Life-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Vegan Life/Pods-Vegan Life-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Vegan Life/Pods-Vegan Life-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E78AF2FBCBED396F6A867C0D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Vegan Life-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F9412AA823FDD69100C33F81 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -340,20 +460,34 @@
 				F9412AE824014CD300C33F81 /* RecipeCell.swift in Sources */,
 				F9412AF82401BAD000C33F81 /* VideoViewController.swift in Sources */,
 				F9412AB623FDD69100C33F81 /* SecondViewController.swift in Sources */,
+				F90FDC56242BED65007DDF17 /* NewMapViewController.swift in Sources */,
 				F904F3102414651E00953458 /* BaseView.swift in Sources */,
 				F904F324241C2BD000953458 /* LocationService.swift in Sources */,
 				F904F31A241469F300953458 /* LocationView.swift in Sources */,
+				F90FDC58242BF208007DDF17 /* LocationSearchTable.swift in Sources */,
+				F930422C2430FEA500171147 /* HomeModel.swift in Sources */,
+				F90FDC50242B9246007DDF17 /* MKPlacemark+Extension.swift in Sources */,
 				F9412AFA2409494700C33F81 /* RequestRecipeViewController.swift in Sources */,
 				F9412AB423FDD69100C33F81 /* FirstViewController.swift in Sources */,
 				F904F328241CFFB800953458 /* NetworkService.swift in Sources */,
+				F96F20BE242B5DA2009894DF /* MapViewController.swift in Sources */,
+				F930422E2430FED700171147 /* ServicesModel.swift in Sources */,
+				F96F20B42427C7A3009894DF /* UIViewExtension.swift in Sources */,
 				F904F30A2411B90900953458 /* ResultsViewController.swift in Sources */,
+				F96F20BC242816B4009894DF /* TypesTableViewController.swift in Sources */,
+				F90FDC54242B95E2007DDF17 /* SearchResultTableViewController.swift in Sources */,
 				F904F30C2411B92D00953458 /* IntroductionViewController.swift in Sources */,
 				F9412AB023FDD69100C33F81 /* AppDelegate.swift in Sources */,
 				F904F3122414663500953458 /* DetailsFoodView.swift in Sources */,
 				F904F3082411B8E300953458 /* QuestionViewController.swift in Sources */,
+				F930422A2430FC2800171147 /* ServicesViewController.swift in Sources */,
+				F96F20B62427CB78009894DF /* PlaceMaker.swift in Sources */,
+				F96F20BA2427D8FA009894DF /* GoogleDataProvider.swift in Sources */,
 				F9412AB223FDD69100C33F81 /* SceneDelegate.swift in Sources */,
 				F904F30E2411C25400953458 /* QuestionData.swift in Sources */,
+				F90FDC52242B9364007DDF17 /* PlaceAnnotation.swift in Sources */,
 				F904F314241467ED00953458 /* DetailsFoodViewController.swift in Sources */,
+				F96F20B82427D506009894DF /* GooglePlace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +658,7 @@
 		};
 		F9412AD923FDD69900C33F81 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85FB84F379C23607F3D00C9E /* Pods-Vegan Life.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -542,6 +677,7 @@
 		};
 		F9412ADA23FDD69900C33F81 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 110B8E972D13DEE0C5A40862 /* Pods-Vegan Life.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

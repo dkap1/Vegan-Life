@@ -1,0 +1,6 @@
+framework module Pods_Vegan_Life {
+  umbrella header "Pods-Vegan Life-umbrella.h"
+
+  export *
+  module * { export * }
+}
