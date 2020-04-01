@@ -23,6 +23,7 @@ class VideoViewController: UIViewController {
     
     @IBOutlet weak var videoWebView: UIWebView!
     @IBOutlet weak var recipeVideoTitle: UILabel!
+
     
     
     override func viewDidLoad() {

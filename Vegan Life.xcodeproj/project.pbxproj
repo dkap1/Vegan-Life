@@ -27,7 +27,18 @@
 		F930422C2430FEA500171147 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930422B2430FEA500171147 /* HomeModel.swift */; };
 		F930422E2430FED700171147 /* ServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930422D2430FED700171147 /* ServicesModel.swift */; };
 		F93042302431589100171147 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F930422F2431589100171147 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		F930423224315D5600171147 /* h.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930423124315D5600171147 /* h.swift */; };
+		F9304234243492A400171147 /* ClothingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9304233243492A400171147 /* ClothingViewController.swift */; };
+		F9304236243492E700171147 /* ModelClothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9304235243492E700171147 /* ModelClothing.swift */; };
+		F93042382434933400171147 /* ModelHomeClothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93042372434933400171147 /* ModelHomeClothing.swift */; };
+		F930423A2434A14800171147 /* FinanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93042392434A14800171147 /* FinanceViewController.swift */; };
+		F930423C2434A19F00171147 /* FinanceHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930423B2434A19F00171147 /* FinanceHomeModel.swift */; };
+		F930423E2434A1C100171147 /* FinanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930423D2434A1C100171147 /* FinanceModel.swift */; };
+		F93042402434A74E00171147 /* HolidaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930423F2434A74E00171147 /* HolidaysViewController.swift */; };
+		F93042422434A76800171147 /* HolidayHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93042412434A76800171147 /* HolidayHomeModel.swift */; };
+		F93042442434A77C00171147 /* HolidayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93042432434A77C00171147 /* HolidayModel.swift */; };
+		F93042462434AAE700171147 /* GroceryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93042452434AAE700171147 /* GroceryViewController.swift */; };
+		F93042482434AAFD00171147 /* GroceryHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93042472434AAFD00171147 /* GroceryHomeModel.swift */; };
+		F930424A2434AB1600171147 /* GroceryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93042492434AB1600171147 /* GroceryModel.swift */; };
 		F9412AB023FDD69100C33F81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AAF23FDD69100C33F81 /* AppDelegate.swift */; };
 		F9412AB223FDD69100C33F81 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AB123FDD69100C33F81 /* SceneDelegate.swift */; };
 		F9412AB423FDD69100C33F81 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AB323FDD69100C33F81 /* FirstViewController.swift */; };
@@ -52,6 +63,12 @@
 		F96F20BA2427D8FA009894DF /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96F20B92427D8FA009894DF /* GoogleDataProvider.swift */; };
 		F96F20BC242816B4009894DF /* TypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96F20BB242816B4009894DF /* TypesTableViewController.swift */; };
 		F96F20BE242B5DA2009894DF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96F20BD242B5DA2009894DF /* MapViewController.swift */; };
+		F9BE88D62434BE21002F6347 /* ServicesMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE88D52434BE20002F6347 /* ServicesMenuViewController.swift */; };
+		F9BE88D82434D189002F6347 /* ClothingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE88D72434D189002F6347 /* ClothingDetailsViewController.swift */; };
+		F9BE88DA2434E72B002F6347 /* allServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE88D92434E72B002F6347 /* allServicesViewController.swift */; };
+		F9BE88DC2434EB33002F6347 /* TravelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE88DB2434EB33002F6347 /* TravelDetailViewController.swift */; };
+		F9BE88DE2434EF4F002F6347 /* FinanceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE88DD2434EF4F002F6347 /* FinanceDetailsViewController.swift */; };
+		F9BE88E02434F337002F6347 /* ShoppingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE88DF2434F337002F6347 /* ShoppingDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +111,18 @@
 		F930422B2430FEA500171147 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		F930422D2430FED700171147 /* ServicesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesModel.swift; sourceTree = "<group>"; };
 		F930422F2431589100171147 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F930423124315D5600171147 /* h.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = h.swift; sourceTree = "<group>"; };
+		F9304233243492A400171147 /* ClothingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingViewController.swift; sourceTree = "<group>"; };
+		F9304235243492E700171147 /* ModelClothing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelClothing.swift; sourceTree = "<group>"; };
+		F93042372434933400171147 /* ModelHomeClothing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHomeClothing.swift; sourceTree = "<group>"; };
+		F93042392434A14800171147 /* FinanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceViewController.swift; sourceTree = "<group>"; };
+		F930423B2434A19F00171147 /* FinanceHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceHomeModel.swift; sourceTree = "<group>"; };
+		F930423D2434A1C100171147 /* FinanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceModel.swift; sourceTree = "<group>"; };
+		F930423F2434A74E00171147 /* HolidaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysViewController.swift; sourceTree = "<group>"; };
+		F93042412434A76800171147 /* HolidayHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayHomeModel.swift; sourceTree = "<group>"; };
+		F93042432434A77C00171147 /* HolidayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayModel.swift; sourceTree = "<group>"; };
+		F93042452434AAE700171147 /* GroceryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryViewController.swift; sourceTree = "<group>"; };
+		F93042472434AAFD00171147 /* GroceryHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryHomeModel.swift; sourceTree = "<group>"; };
+		F93042492434AB1600171147 /* GroceryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryModel.swift; sourceTree = "<group>"; };
 		F9412AAC23FDD69100C33F81 /* Vegan Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vegan Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9412AAF23FDD69100C33F81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9412AB123FDD69100C33F81 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +153,12 @@
 		F96F20B92427D8FA009894DF /* GoogleDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDataProvider.swift; sourceTree = "<group>"; };
 		F96F20BB242816B4009894DF /* TypesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesTableViewController.swift; sourceTree = "<group>"; };
 		F96F20BD242B5DA2009894DF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F9BE88D52434BE20002F6347 /* ServicesMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesMenuViewController.swift; sourceTree = "<group>"; };
+		F9BE88D72434D189002F6347 /* ClothingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingDetailsViewController.swift; sourceTree = "<group>"; };
+		F9BE88D92434E72B002F6347 /* allServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allServicesViewController.swift; sourceTree = "<group>"; };
+		F9BE88DB2434EB33002F6347 /* TravelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailViewController.swift; sourceTree = "<group>"; };
+		F9BE88DD2434EF4F002F6347 /* FinanceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceDetailsViewController.swift; sourceTree = "<group>"; };
+		F9BE88DF2434F337002F6347 /* ShoppingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,7 +272,24 @@
 				F93042292430FC2800171147 /* ServicesViewController.swift */,
 				F930422B2430FEA500171147 /* HomeModel.swift */,
 				F930422D2430FED700171147 /* ServicesModel.swift */,
-				F930423124315D5600171147 /* h.swift */,
+				F9304233243492A400171147 /* ClothingViewController.swift */,
+				F9304235243492E700171147 /* ModelClothing.swift */,
+				F93042372434933400171147 /* ModelHomeClothing.swift */,
+				F93042392434A14800171147 /* FinanceViewController.swift */,
+				F930423B2434A19F00171147 /* FinanceHomeModel.swift */,
+				F930423D2434A1C100171147 /* FinanceModel.swift */,
+				F930423F2434A74E00171147 /* HolidaysViewController.swift */,
+				F93042412434A76800171147 /* HolidayHomeModel.swift */,
+				F93042432434A77C00171147 /* HolidayModel.swift */,
+				F93042452434AAE700171147 /* GroceryViewController.swift */,
+				F93042472434AAFD00171147 /* GroceryHomeModel.swift */,
+				F93042492434AB1600171147 /* GroceryModel.swift */,
+				F9BE88D52434BE20002F6347 /* ServicesMenuViewController.swift */,
+				F9BE88D72434D189002F6347 /* ClothingDetailsViewController.swift */,
+				F9BE88D92434E72B002F6347 /* allServicesViewController.swift */,
+				F9BE88DB2434EB33002F6347 /* TravelDetailViewController.swift */,
+				F9BE88DD2434EF4F002F6347 /* FinanceDetailsViewController.swift */,
+				F9BE88DF2434F337002F6347 /* ShoppingDetailsViewController.swift */,
 			);
 			path = "Vegan Life";
 			sourceTree = "<group>";
@@ -460,38 +511,55 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F93042462434AAE700171147 /* GroceryViewController.swift in Sources */,
 				F9412AE824014CD300C33F81 /* RecipeCell.swift in Sources */,
 				F9412AF82401BAD000C33F81 /* VideoViewController.swift in Sources */,
 				F9412AB623FDD69100C33F81 /* SecondViewController.swift in Sources */,
+				F9BE88DA2434E72B002F6347 /* allServicesViewController.swift in Sources */,
 				F90FDC56242BED65007DDF17 /* NewMapViewController.swift in Sources */,
 				F904F3102414651E00953458 /* BaseView.swift in Sources */,
 				F904F324241C2BD000953458 /* LocationService.swift in Sources */,
 				F904F31A241469F300953458 /* LocationView.swift in Sources */,
+				F930423C2434A19F00171147 /* FinanceHomeModel.swift in Sources */,
 				F90FDC58242BF208007DDF17 /* LocationSearchTable.swift in Sources */,
+				F9BE88D62434BE21002F6347 /* ServicesMenuViewController.swift in Sources */,
 				F930422C2430FEA500171147 /* HomeModel.swift in Sources */,
 				F90FDC50242B9246007DDF17 /* MKPlacemark+Extension.swift in Sources */,
-				F930423224315D5600171147 /* h.swift in Sources */,
 				F9412AFA2409494700C33F81 /* RequestRecipeViewController.swift in Sources */,
 				F9412AB423FDD69100C33F81 /* FirstViewController.swift in Sources */,
 				F904F328241CFFB800953458 /* NetworkService.swift in Sources */,
 				F96F20BE242B5DA2009894DF /* MapViewController.swift in Sources */,
+				F9304234243492A400171147 /* ClothingViewController.swift in Sources */,
+				F93042442434A77C00171147 /* HolidayModel.swift in Sources */,
 				F930422E2430FED700171147 /* ServicesModel.swift in Sources */,
+				F9BE88DC2434EB33002F6347 /* TravelDetailViewController.swift in Sources */,
 				F96F20B42427C7A3009894DF /* UIViewExtension.swift in Sources */,
+				F9BE88E02434F337002F6347 /* ShoppingDetailsViewController.swift in Sources */,
 				F904F30A2411B90900953458 /* ResultsViewController.swift in Sources */,
 				F96F20BC242816B4009894DF /* TypesTableViewController.swift in Sources */,
+				F930424A2434AB1600171147 /* GroceryModel.swift in Sources */,
+				F930423A2434A14800171147 /* FinanceViewController.swift in Sources */,
 				F90FDC54242B95E2007DDF17 /* SearchResultTableViewController.swift in Sources */,
+				F93042382434933400171147 /* ModelHomeClothing.swift in Sources */,
 				F904F30C2411B92D00953458 /* IntroductionViewController.swift in Sources */,
 				F9412AB023FDD69100C33F81 /* AppDelegate.swift in Sources */,
 				F904F3122414663500953458 /* DetailsFoodView.swift in Sources */,
+				F93042482434AAFD00171147 /* GroceryHomeModel.swift in Sources */,
 				F904F3082411B8E300953458 /* QuestionViewController.swift in Sources */,
 				F930422A2430FC2800171147 /* ServicesViewController.swift in Sources */,
 				F96F20B62427CB78009894DF /* PlaceMaker.swift in Sources */,
+				F9304236243492E700171147 /* ModelClothing.swift in Sources */,
 				F96F20BA2427D8FA009894DF /* GoogleDataProvider.swift in Sources */,
 				F9412AB223FDD69100C33F81 /* SceneDelegate.swift in Sources */,
+				F93042422434A76800171147 /* HolidayHomeModel.swift in Sources */,
+				F930423E2434A1C100171147 /* FinanceModel.swift in Sources */,
+				F93042402434A74E00171147 /* HolidaysViewController.swift in Sources */,
 				F904F30E2411C25400953458 /* QuestionData.swift in Sources */,
 				F90FDC52242B9364007DDF17 /* PlaceAnnotation.swift in Sources */,
 				F904F314241467ED00953458 /* DetailsFoodViewController.swift in Sources */,
 				F96F20B82427D506009894DF /* GooglePlace.swift in Sources */,
+				F9BE88DE2434EF4F002F6347 /* FinanceDetailsViewController.swift in Sources */,
+				F9BE88D82434D189002F6347 /* ClothingDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

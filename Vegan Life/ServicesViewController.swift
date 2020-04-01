@@ -7,15 +7,14 @@
 //
 
 import UIKit
+import SwiftUI
 
 class ServicesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeModelProtocol {
     
     var feedItems: NSArray = NSArray()
     var selectedService: ServicesModel = ServicesModel()
     @IBOutlet weak var listTableView: UITableView!
-    
-    
-
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,6 +43,15 @@ class ServicesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         return myCell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        selectedService = feedItems[indexPath.row] as! ServicesModel
+        self.performSegue(withIdentifier: "allSegue", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        let allVC = segue.destination as! allServicesViewController
+        allVC.selectedService = selectedService
+        }
+
     
 
     /*
@@ -57,3 +65,4 @@ class ServicesViewController: UIViewController, UITableViewDataSource, UITableVi
     */
 
 }
+

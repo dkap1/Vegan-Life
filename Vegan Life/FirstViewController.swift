@@ -82,6 +82,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.recipeTitleVideo.text = recipes[indexPath.row].Title
         let url = "https://img.youtube.com/vi/\(recipes[indexPath.row].Key)/0.jpg"
         cell.recipeImageView.downloaded(from: url)
+        
        
    //      cell.heartButton.tag = indexPath.row
     //     cell.heartButton.addTarget(RecipeCell(), action: "heartClick", for: UIControl.Event.touchUpInside)
