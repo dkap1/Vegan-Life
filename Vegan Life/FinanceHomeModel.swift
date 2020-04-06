@@ -14,8 +14,8 @@ protocol FinanceHomeModelProtocol: class {
 
 class FinanceHomeModel: NSObject {
     
-    weak var delegate: FinanceHomeModelProtocol!
-    var data = Data()
+    weak var delegate: FinanceHomeModelProtocol?
+    //var data = Data()
     let urlPath: String = "https://vegan-life.000webhostapp.com/financialfilter.php"
     
     func downloadItems() {
@@ -42,38 +42,36 @@ class FinanceHomeModel: NSObject {
             
         }
         var jsonElement = NSDictionary()
-        let finance = NSMutableArray()
+        let finances = NSMutableArray()
         
         for i in 0 ..< jsonResult.count
           
         {
             jsonElement = jsonResult[i] as! NSDictionary
-            let financial = FinanceModel()
+            let finance = FinanceModel()
             
-            if let businessid = jsonElement["businessid"] as? String,
-            let name = jsonElement["name"] as? String,
-            let address = jsonElement["address"] as? String,
-            let phoneno = jsonElement["phoneno"] as? String,
-            let emailaddress = jsonElement["emailaddress"] as? String,
-            let category = jsonElement["category"] as? String,
-            let businessdescription = jsonElement["businessdescription"] as? String
-            {
-                financial.businessid = businessid
-                financial.name = name
-                financial.address = address
-                financial.phoneno = phoneno
-                financial.emailaddress = emailaddress
-                financial.category = category
-                financial.businessdescription = businessdescription
+            let businessid = jsonElement["businessid"] as? String ?? ""
+            let name = jsonElement["name"] as? String ?? ""
+            let address = jsonElement["address"] as? String ?? ""
+            let phoneno = jsonElement["phoneno"] as? String ?? ""
+            let emailaddress = jsonElement["emailaddress"] as? String ?? ""
+            let category = jsonElement["category"] as? String ?? ""
+            let businessdescription = jsonElement["businessdescription"] as? String? ?? ""
+            
+                finance.businessid = businessid
+                finance.name = name
+                finance.address = address
+                finance.phoneno = phoneno
+                finance.emailaddress = emailaddress
+                finance.category = category
+                finance.businessdescription = businessdescription
+                
+            finances.add(finance)
             }
             
-            finance.add(financial)
+         DispatchQueue.main.async(execute: { () -> Void in
+            self.delegate?.itemsDownloaded(items: finances)
+               })
+
+            }
         }
-        DispatchQueue.main.async(execute: { () -> Void in
-            self.delegate.itemsDownloaded(items: finance)
-        })
-
-    }
-    
-}
-

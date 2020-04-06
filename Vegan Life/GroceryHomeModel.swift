@@ -12,17 +12,18 @@ protocol GroceryHomeModelProtocol: class {
     func itemsDownloaded(items: NSArray)
 }
 
-class GroceryHomeModel: NSObject {
+class GroceryHomeModel: NSObject, URLSessionDelegate {
     
-    weak var delegate: GroceryHomeModelProtocol!
-    var data = Data()
+    weak var delegate: GroceryHomeModelProtocol?
+  //  var data = Data()
     let urlPath: String = "https://vegan-life.000webhostapp.com/groceryfilter.php"
     
     func downloadItems() {
         let url: URL = URL(string: urlPath)!
-        let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
-        let task = defaultSession.dataTask(with: url) { (data, response, error)
-            in
+       let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.ephemeral)
+        URLCache.shared.removeAllCachedResponses()
+        let task = defaultSession.dataTask(with: url){
+            (data, response, error) in
             if error != nil {
                 print("Failed to download data")
             }else{
@@ -42,13 +43,13 @@ class GroceryHomeModel: NSObject {
             
         }
         var jsonElement = NSDictionary()
-        let grocery = NSMutableArray()
+        let groceries = NSMutableArray()
         
         for i in 0 ..< jsonResult.count
           
         {
             jsonElement = jsonResult[i] as! NSDictionary
-            let groceries = GroceryModel()
+            let grocery = GroceryModel()
             
             if let businessid = jsonElement["businessid"] as? String,
             let name = jsonElement["name"] as? String,
@@ -58,20 +59,20 @@ class GroceryHomeModel: NSObject {
             let category = jsonElement["category"] as? String,
             let businessdescription = jsonElement["businessdescription"] as? String
             {
-                groceries.businessid = businessid
-                groceries.name = name
-                groceries.address = address
-                groceries.phoneno = phoneno
-                groceries.emailaddress = emailaddress
-                groceries.category = category
-                groceries.businessdescription = businessdescription
+                grocery.businessid = businessid
+                grocery.name = name
+                grocery.address = address
+                grocery.phoneno = phoneno
+                grocery.emailaddress = emailaddress
+                grocery.category = category
+                grocery.businessdescription = businessdescription
             }
             
-            grocery.add(groceries)
+            groceries.add(grocery)
         }
-        DispatchQueue.main.async(execute: { () -> Void in
-            self.delegate.itemsDownloaded(items: grocery)
-        })
+        DispatchQueue.main.async(){
+            self.delegate?.itemsDownloaded(items: groceries)
+        }
 
     }
     

@@ -57,6 +57,12 @@
 		F9412AF62401597200C33F81 /* chickencurry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9412AF02401597200C33F81 /* chickencurry.jpg */; };
 		F9412AF82401BAD000C33F81 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AF72401BAD000C33F81 /* VideoViewController.swift */; };
 		F9412AFA2409494700C33F81 /* RequestRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AF92409494700C33F81 /* RequestRecipeViewController.swift */; };
+		F963871A243747000078375E /* FavouriteRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9638719243747000078375E /* FavouriteRecipeViewController.swift */; };
+		F963871C243770B20078375E /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F963871B243770B20078375E /* FavouriteCell.swift */; };
+		F963872024377EC70078375E /* FavouriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F963871F24377EC70078375E /* FavouriteTableViewController.swift */; };
+		F96387222437A1BE0078375E /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96387212437A1BD0078375E /* RecipeModel.swift */; };
+		F96387242437A1CE0078375E /* RecipeHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96387232437A1CE0078375E /* RecipeHomeModel.swift */; };
+		F96387262439F3500078375E /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96387252439F34F0078375E /* AddRecipeViewController.swift */; };
 		F96F20B42427C7A3009894DF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96F20B32427C7A3009894DF /* UIViewExtension.swift */; };
 		F96F20B62427CB78009894DF /* PlaceMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96F20B52427CB78009894DF /* PlaceMaker.swift */; };
 		F96F20B82427D506009894DF /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96F20B72427D506009894DF /* GooglePlace.swift */; };
@@ -147,6 +153,12 @@
 		F9412AF02401597200C33F81 /* chickencurry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chickencurry.jpg; sourceTree = SOURCE_ROOT; };
 		F9412AF72401BAD000C33F81 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		F9412AF92409494700C33F81 /* RequestRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRecipeViewController.swift; sourceTree = "<group>"; };
+		F9638719243747000078375E /* FavouriteRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRecipeViewController.swift; sourceTree = "<group>"; };
+		F963871B243770B20078375E /* FavouriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
+		F963871F24377EC70078375E /* FavouriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewController.swift; sourceTree = "<group>"; };
+		F96387212437A1BD0078375E /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		F96387232437A1CE0078375E /* RecipeHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHomeModel.swift; sourceTree = "<group>"; };
+		F96387252439F34F0078375E /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		F96F20B32427C7A3009894DF /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		F96F20B52427CB78009894DF /* PlaceMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMaker.swift; sourceTree = "<group>"; };
 		F96F20B72427D506009894DF /* GooglePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
@@ -232,6 +244,8 @@
 			isa = PBXGroup;
 			children = (
 				F9412AAF23FDD69100C33F81 /* AppDelegate.swift */,
+				F96387212437A1BD0078375E /* RecipeModel.swift */,
+				F963871F24377EC70078375E /* FavouriteTableViewController.swift */,
 				F9412AB123FDD69100C33F81 /* SceneDelegate.swift */,
 				F9412AB323FDD69100C33F81 /* FirstViewController.swift */,
 				F9412AF02401597200C33F81 /* chickencurry.jpg */,
@@ -290,6 +304,10 @@
 				F9BE88DB2434EB33002F6347 /* TravelDetailViewController.swift */,
 				F9BE88DD2434EF4F002F6347 /* FinanceDetailsViewController.swift */,
 				F9BE88DF2434F337002F6347 /* ShoppingDetailsViewController.swift */,
+				F9638719243747000078375E /* FavouriteRecipeViewController.swift */,
+				F963871B243770B20078375E /* FavouriteCell.swift */,
+				F96387232437A1CE0078375E /* RecipeHomeModel.swift */,
+				F96387252439F34F0078375E /* AddRecipeViewController.swift */,
 			);
 			path = "Vegan Life";
 			sourceTree = "<group>";
@@ -521,6 +539,7 @@
 				F904F324241C2BD000953458 /* LocationService.swift in Sources */,
 				F904F31A241469F300953458 /* LocationView.swift in Sources */,
 				F930423C2434A19F00171147 /* FinanceHomeModel.swift in Sources */,
+				F963871C243770B20078375E /* FavouriteCell.swift in Sources */,
 				F90FDC58242BF208007DDF17 /* LocationSearchTable.swift in Sources */,
 				F9BE88D62434BE21002F6347 /* ServicesMenuViewController.swift in Sources */,
 				F930422C2430FEA500171147 /* HomeModel.swift in Sources */,
@@ -529,6 +548,7 @@
 				F9412AB423FDD69100C33F81 /* FirstViewController.swift in Sources */,
 				F904F328241CFFB800953458 /* NetworkService.swift in Sources */,
 				F96F20BE242B5DA2009894DF /* MapViewController.swift in Sources */,
+				F963871A243747000078375E /* FavouriteRecipeViewController.swift in Sources */,
 				F9304234243492A400171147 /* ClothingViewController.swift in Sources */,
 				F93042442434A77C00171147 /* HolidayModel.swift in Sources */,
 				F930422E2430FED700171147 /* ServicesModel.swift in Sources */,
@@ -538,8 +558,10 @@
 				F904F30A2411B90900953458 /* ResultsViewController.swift in Sources */,
 				F96F20BC242816B4009894DF /* TypesTableViewController.swift in Sources */,
 				F930424A2434AB1600171147 /* GroceryModel.swift in Sources */,
+				F963872024377EC70078375E /* FavouriteTableViewController.swift in Sources */,
 				F930423A2434A14800171147 /* FinanceViewController.swift in Sources */,
 				F90FDC54242B95E2007DDF17 /* SearchResultTableViewController.swift in Sources */,
+				F96387242437A1CE0078375E /* RecipeHomeModel.swift in Sources */,
 				F93042382434933400171147 /* ModelHomeClothing.swift in Sources */,
 				F904F30C2411B92D00953458 /* IntroductionViewController.swift in Sources */,
 				F9412AB023FDD69100C33F81 /* AppDelegate.swift in Sources */,
@@ -549,8 +571,10 @@
 				F930422A2430FC2800171147 /* ServicesViewController.swift in Sources */,
 				F96F20B62427CB78009894DF /* PlaceMaker.swift in Sources */,
 				F9304236243492E700171147 /* ModelClothing.swift in Sources */,
+				F96387262439F3500078375E /* AddRecipeViewController.swift in Sources */,
 				F96F20BA2427D8FA009894DF /* GoogleDataProvider.swift in Sources */,
 				F9412AB223FDD69100C33F81 /* SceneDelegate.swift in Sources */,
+				F96387222437A1BE0078375E /* RecipeModel.swift in Sources */,
 				F93042422434A76800171147 /* HolidayHomeModel.swift in Sources */,
 				F930423E2434A1C100171147 /* FinanceModel.swift in Sources */,
 				F93042402434A74E00171147 /* HolidaysViewController.swift in Sources */,

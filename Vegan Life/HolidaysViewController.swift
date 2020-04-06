@@ -37,8 +37,14 @@ class HolidaysViewController: UIViewController, UITableViewDataSource, UITableVi
            func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                let cellIdentifier: String = "HolidayCell"
                let myCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
-               let item: HolidayModel = feedItems[indexPath.row] as! HolidayModel
-               myCell.textLabel!.text = item.name
+                    let item: HolidayModel = self.feedItems[indexPath.row] as! HolidayModel
+                    myCell.textLabel!.text = item.name
+                    
+               
+            
+                    
+             //  let item: HolidayModel = feedItems[indexPath.row] as! HolidayModel
+             //  myCell.textLabel!.text = item.name
                
                return myCell
            }

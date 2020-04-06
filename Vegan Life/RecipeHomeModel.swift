@@ -1,22 +1,22 @@
 //
-//  HolidayHomeModel.swift
+//  RecipeHomeModel.swift
 //  Vegan Life
 //
-//  Created by Danyaal Kapadia on 01/04/2020.
+//  Created by Danyaal Kapadia on 03/04/2020.
 //  Copyright © 2020 Danyaal. All rights reserved.
 //
 
 import UIKit
 
-protocol HolidayHomeModelProtocol: class {
+protocol RecipeHomeModelProtocol: class {
     func itemsDownloaded(items: NSArray)
 }
 
-class HolidayHomeModel: NSObject{
+class RecipeHomeModel: NSObject, URLSessionDelegate {
     
-    weak var delegate: HolidayHomeModelProtocol?
-//    var data = Data()
-    let urlPath: String = "https://vegan-life.000webhostapp.com/holidayfilter.php"
+    weak var delegate: RecipeHomeModelProtocol?
+  //  var data = Data()
+    let urlPath: String = "https://vegan-life.000webhostapp.com/recipeservice.php"
     
     func downloadItems() {
         let url: URL = URL(string: urlPath)!
@@ -43,37 +43,34 @@ class HolidayHomeModel: NSObject{
             
         }
         var jsonElement = NSDictionary()
-        let holidays = NSMutableArray()
+        let recipes = NSMutableArray()
         
         for i in 0 ..< jsonResult.count
           
         {
             jsonElement = jsonResult[i] as! NSDictionary
-            let holiday = HolidayModel()
+            let recipe = RecipeModel()
             
-            if let businessid = jsonElement["businessid"] as? String,
-            let name = jsonElement["name"] as? String,
-            let address = jsonElement["address"] as? String,
-            let phoneno = jsonElement["phoneno"] as? String,
-            let emailaddress = jsonElement["emailaddress"] as? String,
-            let category = jsonElement["category"] as? String,
-            let businessdescription = jsonElement["businessdescription"] as? String
+            if let recipeid = jsonElement["recipeid"] as? String,
+            let recipetitle = jsonElement["recipetitle"] as? String,
+            let recipekey = jsonElement["recipekey"] as? String,
+            let recipeingredients = jsonElement["recipeingredients"] as? String
             {
-                holiday.businessid = businessid
-                holiday.name = name
-                holiday.address = address
-                holiday.phoneno = phoneno
-                holiday.emailaddress = emailaddress
-                holiday.category = category
-                holiday.businessdescription = businessdescription
+                recipe.recipeid = recipeid
+                recipe.recipetitle = recipetitle
+                recipe.recipekey = recipekey
+                recipe.recipeingredients = recipeingredients
+                
             }
             
-            holidays.add(holiday)
+            recipes.add(recipe)
         }
         DispatchQueue.main.async(){
-            self.delegate?.itemsDownloaded(items: holidays)
+            self.delegate?.itemsDownloaded(items: recipes)
         }
 
     }
     
 }
+
+

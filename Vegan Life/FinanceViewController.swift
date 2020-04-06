@@ -39,9 +39,8 @@ class FinanceViewController: UIViewController, UITableViewDataSource, UITableVie
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cellIdentifier: String = "FinanceCell"
             let myCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
-            let item: FinanceModel = feedItems[indexPath.row] as! FinanceModel
-            myCell.textLabel!.text = item.name
-            
+           let item: FinanceModel = feedItems[indexPath.row] as! FinanceModel
+          myCell.textLabel!.text = item.name
             return myCell
         }
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){

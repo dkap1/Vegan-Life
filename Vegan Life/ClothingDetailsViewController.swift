@@ -10,7 +10,7 @@ import UIKit
 
 class ClothingDetailsViewController: UIViewController {
     
-    var selectedClothing: ModelClothing?
+    var selectedClothing: ModelClothing!
     
     @IBOutlet weak var cdetailsName: UILabel!
     

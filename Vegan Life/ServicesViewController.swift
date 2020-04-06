@@ -36,10 +36,18 @@ class ServicesViewController: UIViewController, UITableViewDataSource, UITableVi
         return feedItems.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+      
         let cellIdentifier: String = "BasicCell"
         let myCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
-        let item: ServicesModel = feedItems[indexPath.row] as! ServicesModel
-        myCell.textLabel!.text = item.name
+        
+            let item: ServicesModel = self.feedItems[indexPath.row] as! ServicesModel
+            myCell.textLabel!.text = item.name
+            
+       
+    
+            
+        
         
         return myCell
     }

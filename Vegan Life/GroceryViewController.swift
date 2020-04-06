@@ -37,9 +37,16 @@ class GroceryViewController: UIViewController, UITableViewDataSource, UITableVie
           }
           func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
               let cellIdentifier: String = "GroceryCell"
+            
               let myCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
-              let item: GroceryModel = feedItems[indexPath.row] as! GroceryModel
-              myCell.textLabel!.text = item.name
+                    let item: GroceryModel = self.feedItems[indexPath.row] as! GroceryModel
+                    myCell.textLabel!.text = item.name
+                 
+               
+            
+                    
+           //  let item: GroceryModel = feedItems[indexPath.row] as! GroceryModel
+            //  myCell.textLabel!.text = item.name
               
               return myCell
           }

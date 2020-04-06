@@ -12,17 +12,18 @@ protocol ModelHomeClothingProtocol: class {
     func itemsDownloaded(items: NSArray)
 }
 
-class ModelHomeClothing: NSObject {
+class ModelHomeClothing: NSObject, URLSessionDelegate {
     
-    weak var delegate: ModelHomeClothingProtocol!
-    var data = Data()
+    weak var delegate: ModelHomeClothingProtocol?
+   // var data = Data()
     let urlPath: String = "https://vegan-life.000webhostapp.com/clothingfilter.php"
     
     func downloadItems() {
         let url: URL = URL(string: urlPath)!
-        let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
-        let task = defaultSession.dataTask(with: url) { (data, response, error)
-            in
+       let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.ephemeral)
+        URLCache.shared.removeAllCachedResponses()
+        let task = defaultSession.dataTask(with: url){
+            (data, response, error) in
             if error != nil {
                 print("Failed to download data")
             }else{
@@ -42,13 +43,13 @@ class ModelHomeClothing: NSObject {
             
         }
         var jsonElement = NSDictionary()
-        let clothing = NSMutableArray()
+        let clothes = NSMutableArray()
         
         for i in 0 ..< jsonResult.count
           
         {
             jsonElement = jsonResult[i] as! NSDictionary
-            let clothes = ModelClothing()
+            let clothing = ModelClothing()
             
             if let businessid = jsonElement["businessid"] as? String,
             let name = jsonElement["name"] as? String,
@@ -58,21 +59,22 @@ class ModelHomeClothing: NSObject {
             let category = jsonElement["category"] as? String,
             let businessdescription = jsonElement["businessdescription"] as? String
             {
-                clothes.businessid = businessid
-                clothes.name = name
-                clothes.address = address
-                clothes.phoneno = phoneno
-                clothes.emailaddress = emailaddress
-                clothes.category = category
-                clothes.businessdescription = businessdescription
+                clothing.businessid = businessid
+                clothing.name = name
+                clothing.address = address
+                clothing.phoneno = phoneno
+                clothing.emailaddress = emailaddress
+                clothing.category = category
+                clothing.businessdescription = businessdescription
             }
             
-            clothing.add(clothes)
+            clothes.add(clothing)
         }
         DispatchQueue.main.async(execute: { () -> Void in
-            self.delegate.itemsDownloaded(items: clothing)
-        })
+                          
+                    self.delegate?.itemsDownloaded(items: clothes)
+                          
+                      })
+                  }
+        }
 
-    }
-    
-}

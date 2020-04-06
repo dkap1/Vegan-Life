@@ -14,15 +14,17 @@ protocol HomeModelProtocol: class {
 
 class HomeModel: NSObject {
     
-    weak var delegate: HomeModelProtocol!
-    var data = Data()
+    weak var delegate: HomeModelProtocol?
+  
+ //var data = Data()
+  
     let urlPath: String = "https://vegan-life.000webhostapp.com/service.php"
     
     func downloadItems() {
         let url: URL = URL(string: urlPath)!
-        let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
-        let task = defaultSession.dataTask(with: url) { (data, response, error)
-            in
+         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
+               
+               let task = defaultSession.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 print("Failed to download data")
             }else{
@@ -42,13 +44,13 @@ class HomeModel: NSObject {
             
         }
         var jsonElement = NSDictionary()
-        let service = NSMutableArray()
+        let services = NSMutableArray()
         
         for i in 0 ..< jsonResult.count
           
         {
             jsonElement = jsonResult[i] as! NSDictionary
-            let services = ServicesModel()
+            let service = ServicesModel()
             
             if let businessid = jsonElement["businessid"] as? String,
             let name = jsonElement["name"] as? String,
@@ -58,22 +60,21 @@ class HomeModel: NSObject {
             let category = jsonElement["category"] as? String,
             let businessdescription = jsonElement["businessdescription"] as? String
             {
-                services.businessid = businessid
-                services.name = name
-                services.address = address
-                services.phoneno = phoneno
-                services.emailaddress = emailaddress
-                services.category = category
-                services.businessdescription = businessdescription
+                service.businessid = businessid
+                service.name = name
+                service.address = address
+                service.phoneno = phoneno
+                service.emailaddress = emailaddress
+                service.category = category
+                service.businessdescription = businessdescription
             }
             
-            service.add(services)
+            services.add(service)
         }
-        DispatchQueue.main.async(execute: { () -> Void in
-            self.delegate.itemsDownloaded(items: service)
-        })
-
-    }
-    
+         DispatchQueue.main.async(execute: { () -> Void in
+                  
+            self.delegate?.itemsDownloaded(items: services)
+                  
+              })
+          }
 }
-

@@ -76,13 +76,13 @@
                                                 <constraint firstAttribute="width" constant="199" id="9op-Qz-jdI"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="fGF-51-UWL">
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="fGF-51-UWL">
                                             <rect key="frame" x="352" y="61" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2TL-Xu-xOh">
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2TL-Xu-xOh">
                                             <rect key="frame" x="300" y="101" width="147" height="49"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="147" id="uTo-id-ZF4"/>
@@ -119,9 +119,13 @@
                             <outlet property="delegate" destination="9pv-A4-QxB" id="Gd3-Hv-I3A"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Recipes" id="fbY-dV-ALJ"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="listRecipeTableView" destination="2gy-jp-ei7" id="AX3-oI-6UU"/>
                         <segue destination="hfQ-AC-5f8" kind="show" identifier="toRecipe" id="YZw-tp-LD1"/>
+                        <segue destination="zaa-U5-3KA" kind="show" identifier="addRecipe" id="0EU-26-Ax5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -137,7 +141,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Recipe Request..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EOT-KM-tnp">
-                                <rect key="frame" x="20" y="169" width="374" height="257"/>
+                                <rect key="frame" x="20" y="120" width="374" height="257"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="257" id="rvW-36-7RT"/>
@@ -147,7 +151,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjY-qF-4gI">
-                                <rect key="frame" x="181" y="454" width="52" height="30"/>
+                                <rect key="frame" x="181" y="405" width="52" height="30"/>
                                 <state key="normal" title="Submit ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -156,7 +160,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s48-Dc-rrX">
-                                <rect key="frame" x="20" y="127" width="374" height="34"/>
+                                <rect key="frame" x="20" y="78" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -256,7 +260,7 @@
         <!--Video View Controller-->
         <scene sceneID="iru-xU-eJg">
             <objects>
-                <viewController id="hfQ-AC-5f8" customClass="VideoViewController" customModule="Vegan_Life" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hfQ-AC-5f8" customClass="VideoViewController" customModule="Vegan_Life" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kEI-oG-dVB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -310,8 +314,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="S9F-md-HMZ"/>
                     <connections>
-                        <outlet property="recipeVideoTitle" destination="2g5-ae-elm" id="3gS-Hz-EOm"/>
-                        <outlet property="videoWebView" destination="Tqt-6h-pvg" id="ZBa-z6-xh9"/>
+                        <outlet property="recipeVideoTitle" destination="2g5-ae-elm" id="htF-tm-3oQ"/>
+                        <outlet property="videoWebView" destination="Tqt-6h-pvg" id="2qm-5G-CiW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjc-gq-mQm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -839,6 +843,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WQn-BH-usy">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClothingCell" id="kVK-ez-PUC">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
@@ -1195,6 +1200,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-564" y="407"/>
+        </scene>
+        <!--Add a Recipe-->
+        <scene sceneID="mAi-NC-XbV">
+            <objects>
+                <viewController storyboardIdentifier="AddRecipeViewController" id="zaa-U5-3KA" customClass="AddRecipeViewController" customModule="Vegan_Life" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="efw-K2-ZEJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a YouTube Video Key" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6SO-ti-W7M">
+                                <rect key="frame" x="20" y="210" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUD-D8-nCB">
+                                <rect key="frame" x="183" y="682" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="addRecipe:" destination="zaa-U5-3KA" eventType="touchUpInside" id="x5G-Rr-Juu"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CKx-IV-kae">
+                                <rect key="frame" x="20" y="267" width="374" height="383"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a recipe title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0JN-uM-1A8">
+                                <rect key="frame" x="20" y="147" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="1nc-bh-qt0"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add a Recipe" largeTitleDisplayMode="always" id="iip-Jl-qlq"/>
+                    <connections>
+                        <outlet property="recipeingredients" destination="CKx-IV-kae" id="4DI-pg-9xh"/>
+                        <outlet property="recipekey" destination="6SO-ti-W7M" id="BFS-nF-gCe"/>
+                        <outlet property="recipetitle" destination="0JN-uM-1A8" id="y28-8z-7z9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pys-6g-7tn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2360.8695652173915" y="-3380.3571428571427"/>
         </scene>
         <!--Recipes-->
         <scene sceneID="mWb-gj-DPe">

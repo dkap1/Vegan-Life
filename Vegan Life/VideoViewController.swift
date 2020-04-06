@@ -10,11 +10,11 @@ import UIKit
 import Social
 
 class VideoViewController: UIViewController {
+   
+       var selectedRecipe: RecipeModel?
 
-    
 
-
-    var recipe:Recipe = Recipe()
+   // var recipe: Recipe = Recipe()
     var recipeMessage1 = "Hey, check out this recipe!"
     var recipeMessage2 = "I found it on the VeganLife iOS app."
    
@@ -29,10 +29,11 @@ class VideoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        recipeVideoTitle.text = recipe.Title
-        getVideo(videoKey: recipe.Key)
+      //         recipeVideoTitle.text = recipe.Title
+     //   getVideo(videoKey: recipe.Key)
         
-
+        recipeVideoTitle.text = selectedRecipe?.recipetitle
+        getVideo(videoKey: selectedRecipe!.recipekey!)
         
         
         
@@ -47,7 +48,7 @@ class VideoViewController: UIViewController {
     }
     @IBAction func shareButton(_ sender: Any) {
 
-        let activityController = UIActivityViewController(activityItems: [String("Hey, check out this recipes I found on the VeganLife iOS app:"), recipe.Title, URL(string: "https://www.youtube.com/embed/\(recipe.Key)")],
+        let activityController = UIActivityViewController(activityItems: [String("Hey, check out this recipes I found on the VeganLife iOS app:"), selectedRecipe?.recipetitle, URL(string: "https://www.youtube.com/embed/\(selectedRecipe?.recipekey)")],
             applicationActivities: nil)
             
          present(activityController, animated: true, completion: nil)

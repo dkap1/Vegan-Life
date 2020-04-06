@@ -8,16 +8,20 @@
 
 import UIKit
 
+
 class RecipeCell: UITableViewCell{
 
+     var buttonPressed : (() -> ()) = {}
+    
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeTitleVideo: UILabel!
 
     @IBOutlet weak var heartButton: UIButton!
+  
 
-        
-        
     
+    
+
     
     
     
@@ -27,13 +31,20 @@ class RecipeCell: UITableViewCell{
       if heartButton.tag == 0{
               heartButton.setImage(UIImage(named: "heart1" ), for: .normal)
               heartButton.tag = 1
+              buttonPressed()
+            
+      
+               
+           }
+           
           
-      }
+      
       else
       {
           
           heartButton.setImage(UIImage(named: "heart2" ), for: .normal)
             heartButton.tag = 0
+            
          
                   }
               }
