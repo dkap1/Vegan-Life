@@ -10,7 +10,7 @@ import UIKit
 
 class FavouriteTableViewController: UITableViewController {
 
-    var favourites = FirstViewController().favourites
+   // var favourites = FirstViewController().favourites
     
     
     override func viewDidLoad() {
@@ -25,9 +25,9 @@ class FavouriteTableViewController: UITableViewController {
     // MARK: - Table view data source
 
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return favourites.count
-            print(favourites.count)
+   // override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     //       return favourites.count
+      //      print(favourites.count)
     }
 
     
@@ -77,4 +77,4 @@ class FavouriteTableViewController: UITableViewController {
     }
     */
 
-}
+

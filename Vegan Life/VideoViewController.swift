@@ -23,7 +23,7 @@ class VideoViewController: UIViewController {
     
     @IBOutlet weak var videoWebView: UIWebView!
     @IBOutlet weak var recipeVideoTitle: UILabel!
-
+    @IBOutlet weak var recipeIngredients: UITextView!
     
     
     override func viewDidLoad() {
@@ -34,8 +34,12 @@ class VideoViewController: UIViewController {
         
         recipeVideoTitle.text = selectedRecipe?.recipetitle
         getVideo(videoKey: selectedRecipe!.recipekey!)
+        recipeIngredients.text = selectedRecipe?.recipeingredients
         
         
+     
+        
+         
         
         // Do any additional setup after loading the view.
     }
@@ -53,6 +57,8 @@ class VideoViewController: UIViewController {
             
          present(activityController, animated: true, completion: nil)
            }
+    
+}
             
     /*
     // MARK: - Navigation
@@ -64,4 +70,4 @@ class VideoViewController: UIViewController {
     }
     */
   
-}
+

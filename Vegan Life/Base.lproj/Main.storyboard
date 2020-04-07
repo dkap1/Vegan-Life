@@ -288,13 +288,14 @@
                                     <action selector="shareButton:" destination="hfQ-AC-5f8" eventType="touchUpInside" id="16Z-Lr-XDu"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9d-x6-zJd">
-                                <rect key="frame" x="20" y="461" width="374" height="261"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gmG-iy-FJt">
+                                <rect key="frame" x="20" y="554" width="374" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -314,6 +315,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="S9F-md-HMZ"/>
                     <connections>
+                        <outlet property="recipeIngredients" destination="gmG-iy-FJt" id="JBt-zn-dcw"/>
                         <outlet property="recipeVideoTitle" destination="2g5-ae-elm" id="htF-tm-3oQ"/>
                         <outlet property="videoWebView" destination="Tqt-6h-pvg" id="2qm-5G-CiW"/>
                     </connections>
