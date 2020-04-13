@@ -57,6 +57,7 @@ class GroceryHomeModel: NSObject, URLSessionDelegate {
             let phoneno = jsonElement["phoneno"] as? String,
             let emailaddress = jsonElement["emailaddress"] as? String,
             let category = jsonElement["category"] as? String,
+            let subcategory = jsonElement["subcategory"] as? String,
             let businessdescription = jsonElement["businessdescription"] as? String
             {
                 grocery.businessid = businessid
@@ -65,6 +66,7 @@ class GroceryHomeModel: NSObject, URLSessionDelegate {
                 grocery.phoneno = phoneno
                 grocery.emailaddress = emailaddress
                 grocery.category = category
+                grocery.subcategory = subcategory
                 grocery.businessdescription = businessdescription
             }
             

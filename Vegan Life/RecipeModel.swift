@@ -8,7 +8,15 @@
 
 import Foundation
 
-class RecipeModel: NSObject {
+class RecipeModel: NSObject, NSCoding {
+    func encode(with coder: NSCoder) {
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        
+    }
+    
     var recipeid: String?
     var recipetitle: String?
     var recipekey: String?

@@ -56,6 +56,7 @@ class FinanceHomeModel: NSObject {
             let phoneno = jsonElement["phoneno"] as? String ?? ""
             let emailaddress = jsonElement["emailaddress"] as? String ?? ""
             let category = jsonElement["category"] as? String ?? ""
+            let subcategory = jsonElement["subcategory"] as? String ?? ""
             let businessdescription = jsonElement["businessdescription"] as? String? ?? ""
             
                 finance.businessid = businessid
@@ -64,6 +65,7 @@ class FinanceHomeModel: NSObject {
                 finance.phoneno = phoneno
                 finance.emailaddress = emailaddress
                 finance.category = category
+                finance.subcategory = subcategory
                 finance.businessdescription = businessdescription
                 
             finances.add(finance)

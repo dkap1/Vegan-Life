@@ -8,17 +8,26 @@
 
 import UIKit
 
+protocol RecipeCellDelegate {
+   func favoriteButtonTapped()
+}
 
 class RecipeCell: UITableViewCell{
 
      var buttonPressed : (() -> ()) = {}
+     var delegate: RecipeCellDelegate?
+    
     
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeTitleVideo: UILabel!
 
     @IBOutlet weak var heartButton: UIButton!
   
-
+    @IBAction func favoriteButtonTapped(_ sender: Any) {
+        delegate?.favoriteButtonTapped()
+    }
+    
+    
     
     
 
@@ -49,7 +58,8 @@ class RecipeCell: UITableViewCell{
                   }
               }
  
-         
+    
+            
      
           }
 

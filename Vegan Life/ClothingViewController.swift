@@ -8,10 +8,17 @@
 
 import UIKit
 
-class ClothingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ModelHomeClothingProtocol {
+class ClothingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ModelHomeClothingProtocol,
+    UISearchBarDelegate, UISearchResultsUpdating{
    
-    var feedItems: NSArray = NSArray()
+    var feedItems = [ModelClothing]()
     var selectedClothing: ModelClothing = ModelClothing()
+    var filteredClothing = [ModelClothing]()
+    
+    let searchController = UISearchController(searchResultsController: nil)
+      
+
+    
     @IBOutlet weak var listClothingTableView: UITableView!
     
    
@@ -26,20 +33,62 @@ class ClothingViewController: UIViewController, UITableViewDataSource, UITableVi
             let clothingModel = ModelHomeClothing()
             clothingModel.delegate = self
             clothingModel.downloadItems()
+            
+            
+            filteredClothing = feedItems
+                   
+            searchController.searchResultsUpdater = self
+            searchController.dimsBackgroundDuringPresentation = false
+            definesPresentationContext = true
+                   
+            listClothingTableView.tableHeaderView = searchController.searchBar
+               
+            searchController.searchBar.scopeButtonTitles = ["All", "Mens", "Womens", "Accessories"]
+            searchController.searchBar.delegate = self
+                 
+                   
+            self.listClothingTableView.register(UITableViewCell.self, forCellReuseIdentifier: "ClothingCell")
+            
+            
+            
         }
         func itemsDownloaded(items: NSArray) {
-            feedItems = items
+             feedItems = items as!  [ModelClothing]
             self.listClothingTableView.reloadData()
             print(items)
         }
+    func applySearch(searchText: String, scope: String = "All"){
+           if searchController.searchBar.text! == "" {
+               filteredClothing = feedItems.filter{ feedItems in
+                   let ClothingCat = (scope == "All") || (feedItems.subcategory == scope)
+                   return ClothingCat
+           }
+           } else {
+                   filteredClothing = feedItems.filter{ feedItems in
+                       let ClothingCat = (scope == "All") || (feedItems.subcategory == scope)
+                       return ClothingCat && feedItems.name!.lowercased().contains(searchText.lowercased())
+                   }
+               }
+           self.listClothingTableView.reloadData()
+           
+       }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let selectedScope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        applySearch(searchText: searchController.searchBar.text!,scope: selectedScope)
+    }
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        applySearch(searchText: searchController.searchBar.text!,scope: searchBar.scopeButtonTitles![selectedScope])
+        
+    }
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return feedItems.count
+            return filteredClothing.count
         }
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cellIdentifier: String = "ClothingCell"
             let myCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
-            let item: ModelClothing = feedItems[indexPath.row] as! ModelClothing
-            myCell.textLabel!.text = item.name
+            myCell.textLabel!.text = filteredClothing[indexPath.row].name
             
             return myCell
         }

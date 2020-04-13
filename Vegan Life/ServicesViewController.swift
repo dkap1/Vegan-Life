@@ -7,14 +7,23 @@
 //
 
 import UIKit
-import SwiftUI
 
-class ServicesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeModelProtocol {
+
+class ServicesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeModelProtocol,
+UISearchResultsUpdating, UISearchBarDelegate {
     
-    var feedItems: NSArray = NSArray()
+    var feedItems = [ServicesModel]()
+    var filteredService = [ServicesModel]()
     var selectedService: ServicesModel = ServicesModel()
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
     @IBOutlet weak var listTableView: UITableView!
    
+
+  
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,14 +35,58 @@ class ServicesViewController: UIViewController, UITableViewDataSource, UITableVi
         let homeModel = HomeModel()
         homeModel.delegate = self
         homeModel.downloadItems()
+        
+        filteredService = feedItems
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        
+        listTableView.tableHeaderView = searchController.searchBar
+    
+        searchController.searchBar.scopeButtonTitles = ["All", "Finance", "Clothing", "Travel", "Shopping"]
+        searchController.searchBar.placeholder = "Search for a Service"
+        searchController.searchBar.delegate = self
+      
+        
+          self.listTableView.register(UITableViewCell.self, forCellReuseIdentifier: "BasicCell")
+        
     }
     func itemsDownloaded(items: NSArray) {
-        feedItems = items
+        feedItems = items as!  [ServicesModel]
         self.listTableView.reloadData()
         print(items)
     }
+    func applySearch(searchText: String, scope: String = "All"){
+        if searchController.searchBar.text! == "" {
+            filteredService = feedItems.filter{ feedItems in
+                let serviceCat = (scope == "All") || (feedItems.category == scope)
+                return serviceCat
+        }
+        } else {
+                filteredService = feedItems.filter{ feedItems in
+                    let serviceCat = (scope == "All") || (feedItems.category == scope)
+                    return serviceCat && feedItems.name!.lowercased().contains(searchText.lowercased())
+                }
+            }
+        self.listTableView.reloadData()
+        
+    }
+    
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let selectedScope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        applySearch(searchText: searchController.searchBar.text!,scope: selectedScope)
+    }
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        applySearch(searchText: searchController.searchBar.text!,scope: searchBar.scopeButtonTitles![selectedScope])
+        
+    }
+
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return feedItems.count
+        return  filteredService.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -41,15 +94,16 @@ class ServicesViewController: UIViewController, UITableViewDataSource, UITableVi
         let cellIdentifier: String = "BasicCell"
         let myCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
         
-            let item: ServicesModel = self.feedItems[indexPath.row] as! ServicesModel
-            myCell.textLabel!.text = item.name
+           
+        myCell.textLabel!.text = filteredService[indexPath.row].name
+        
             
        
     
             
         
         
-        return myCell
+       return myCell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         selectedService = feedItems[indexPath.row] as! ServicesModel

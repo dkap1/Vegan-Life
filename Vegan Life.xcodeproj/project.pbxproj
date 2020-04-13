@@ -23,6 +23,7 @@
 		F90FDC54242B95E2007DDF17 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90FDC53242B95E2007DDF17 /* SearchResultTableViewController.swift */; };
 		F90FDC56242BED65007DDF17 /* NewMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90FDC55242BED65007DDF17 /* NewMapViewController.swift */; };
 		F90FDC58242BF208007DDF17 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90FDC57242BF208007DDF17 /* LocationSearchTable.swift */; };
+		F92F673F243F44E20019143E /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F673E243F44E20019143E /* SpinnerViewController.swift */; };
 		F930422A2430FC2800171147 /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93042292430FC2800171147 /* ServicesViewController.swift */; };
 		F930422C2430FEA500171147 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930422B2430FEA500171147 /* HomeModel.swift */; };
 		F930422E2430FED700171147 /* ServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930422D2430FED700171147 /* ServicesModel.swift */; };
@@ -57,9 +58,7 @@
 		F9412AF62401597200C33F81 /* chickencurry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9412AF02401597200C33F81 /* chickencurry.jpg */; };
 		F9412AF82401BAD000C33F81 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AF72401BAD000C33F81 /* VideoViewController.swift */; };
 		F9412AFA2409494700C33F81 /* RequestRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412AF92409494700C33F81 /* RequestRecipeViewController.swift */; };
-		F963871A243747000078375E /* FavouriteRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9638719243747000078375E /* FavouriteRecipeViewController.swift */; };
 		F963871C243770B20078375E /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F963871B243770B20078375E /* FavouriteCell.swift */; };
-		F963872024377EC70078375E /* FavouriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F963871F24377EC70078375E /* FavouriteTableViewController.swift */; };
 		F96387222437A1BE0078375E /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96387212437A1BD0078375E /* RecipeModel.swift */; };
 		F96387242437A1CE0078375E /* RecipeHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96387232437A1CE0078375E /* RecipeHomeModel.swift */; };
 		F96387262439F3500078375E /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96387252439F34F0078375E /* AddRecipeViewController.swift */; };
@@ -69,6 +68,7 @@
 		F96F20BA2427D8FA009894DF /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96F20B92427D8FA009894DF /* GoogleDataProvider.swift */; };
 		F96F20BC242816B4009894DF /* TypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96F20BB242816B4009894DF /* TypesTableViewController.swift */; };
 		F96F20BE242B5DA2009894DF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96F20BD242B5DA2009894DF /* MapViewController.swift */; };
+		F9940FFE244270CC00870569 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9940FFD244270CC00870569 /* FavoritesViewController.swift */; };
 		F9BE88D62434BE21002F6347 /* ServicesMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE88D52434BE20002F6347 /* ServicesMenuViewController.swift */; };
 		F9BE88D82434D189002F6347 /* ClothingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE88D72434D189002F6347 /* ClothingDetailsViewController.swift */; };
 		F9BE88DA2434E72B002F6347 /* allServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE88D92434E72B002F6347 /* allServicesViewController.swift */; };
@@ -113,6 +113,7 @@
 		F90FDC53242B95E2007DDF17 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
 		F90FDC55242BED65007DDF17 /* NewMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMapViewController.swift; sourceTree = "<group>"; };
 		F90FDC57242BF208007DDF17 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
+		F92F673E243F44E20019143E /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		F93042292430FC2800171147 /* ServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
 		F930422B2430FEA500171147 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		F930422D2430FED700171147 /* ServicesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesModel.swift; sourceTree = "<group>"; };
@@ -153,9 +154,7 @@
 		F9412AF02401597200C33F81 /* chickencurry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chickencurry.jpg; sourceTree = SOURCE_ROOT; };
 		F9412AF72401BAD000C33F81 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		F9412AF92409494700C33F81 /* RequestRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRecipeViewController.swift; sourceTree = "<group>"; };
-		F9638719243747000078375E /* FavouriteRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRecipeViewController.swift; sourceTree = "<group>"; };
 		F963871B243770B20078375E /* FavouriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
-		F963871F24377EC70078375E /* FavouriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewController.swift; sourceTree = "<group>"; };
 		F96387212437A1BD0078375E /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		F96387232437A1CE0078375E /* RecipeHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHomeModel.swift; sourceTree = "<group>"; };
 		F96387252439F34F0078375E /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +164,7 @@
 		F96F20B92427D8FA009894DF /* GoogleDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDataProvider.swift; sourceTree = "<group>"; };
 		F96F20BB242816B4009894DF /* TypesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesTableViewController.swift; sourceTree = "<group>"; };
 		F96F20BD242B5DA2009894DF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F9940FFD244270CC00870569 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		F9BE88D52434BE20002F6347 /* ServicesMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesMenuViewController.swift; sourceTree = "<group>"; };
 		F9BE88D72434D189002F6347 /* ClothingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingDetailsViewController.swift; sourceTree = "<group>"; };
 		F9BE88D92434E72B002F6347 /* allServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allServicesViewController.swift; sourceTree = "<group>"; };
@@ -245,7 +245,6 @@
 			children = (
 				F9412AAF23FDD69100C33F81 /* AppDelegate.swift */,
 				F96387212437A1BD0078375E /* RecipeModel.swift */,
-				F963871F24377EC70078375E /* FavouriteTableViewController.swift */,
 				F9412AB123FDD69100C33F81 /* SceneDelegate.swift */,
 				F9412AB323FDD69100C33F81 /* FirstViewController.swift */,
 				F9412AF02401597200C33F81 /* chickencurry.jpg */,
@@ -304,10 +303,11 @@
 				F9BE88DB2434EB33002F6347 /* TravelDetailViewController.swift */,
 				F9BE88DD2434EF4F002F6347 /* FinanceDetailsViewController.swift */,
 				F9BE88DF2434F337002F6347 /* ShoppingDetailsViewController.swift */,
-				F9638719243747000078375E /* FavouriteRecipeViewController.swift */,
 				F963871B243770B20078375E /* FavouriteCell.swift */,
 				F96387232437A1CE0078375E /* RecipeHomeModel.swift */,
 				F96387252439F34F0078375E /* AddRecipeViewController.swift */,
+				F92F673E243F44E20019143E /* SpinnerViewController.swift */,
+				F9940FFD244270CC00870569 /* FavoritesViewController.swift */,
 			);
 			path = "Vegan Life";
 			sourceTree = "<group>";
@@ -541,6 +541,7 @@
 				F930423C2434A19F00171147 /* FinanceHomeModel.swift in Sources */,
 				F963871C243770B20078375E /* FavouriteCell.swift in Sources */,
 				F90FDC58242BF208007DDF17 /* LocationSearchTable.swift in Sources */,
+				F92F673F243F44E20019143E /* SpinnerViewController.swift in Sources */,
 				F9BE88D62434BE21002F6347 /* ServicesMenuViewController.swift in Sources */,
 				F930422C2430FEA500171147 /* HomeModel.swift in Sources */,
 				F90FDC50242B9246007DDF17 /* MKPlacemark+Extension.swift in Sources */,
@@ -548,7 +549,6 @@
 				F9412AB423FDD69100C33F81 /* FirstViewController.swift in Sources */,
 				F904F328241CFFB800953458 /* NetworkService.swift in Sources */,
 				F96F20BE242B5DA2009894DF /* MapViewController.swift in Sources */,
-				F963871A243747000078375E /* FavouriteRecipeViewController.swift in Sources */,
 				F9304234243492A400171147 /* ClothingViewController.swift in Sources */,
 				F93042442434A77C00171147 /* HolidayModel.swift in Sources */,
 				F930422E2430FED700171147 /* ServicesModel.swift in Sources */,
@@ -557,8 +557,8 @@
 				F9BE88E02434F337002F6347 /* ShoppingDetailsViewController.swift in Sources */,
 				F904F30A2411B90900953458 /* ResultsViewController.swift in Sources */,
 				F96F20BC242816B4009894DF /* TypesTableViewController.swift in Sources */,
+				F9940FFE244270CC00870569 /* FavoritesViewController.swift in Sources */,
 				F930424A2434AB1600171147 /* GroceryModel.swift in Sources */,
-				F963872024377EC70078375E /* FavouriteTableViewController.swift in Sources */,
 				F930423A2434A14800171147 /* FinanceViewController.swift in Sources */,
 				F90FDC54242B95E2007DDF17 /* SearchResultTableViewController.swift in Sources */,
 				F96387242437A1CE0078375E /* RecipeHomeModel.swift in Sources */,

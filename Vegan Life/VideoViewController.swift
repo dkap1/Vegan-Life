@@ -37,8 +37,8 @@ class VideoViewController: UIViewController {
         recipeIngredients.text = selectedRecipe?.recipeingredients
         
         
-     
-        
+         navigationItem.title = selectedRecipe?.recipetitle
+      //   navigationController?.navigationBar.prefersLargeTitles = true
          
         
         // Do any additional setup after loading the view.
@@ -52,7 +52,7 @@ class VideoViewController: UIViewController {
     }
     @IBAction func shareButton(_ sender: Any) {
 
-        let activityController = UIActivityViewController(activityItems: [String("Hey, check out this recipes I found on the VeganLife iOS app:"), selectedRecipe?.recipetitle, URL(string: "https://www.youtube.com/embed/\(selectedRecipe?.recipekey)")],
+        let activityController = UIActivityViewController(activityItems: [String("Hey, check out this recipe I found on the VeganLife iOS app:"), selectedRecipe?.recipetitle, URL(string: "https://www.youtube.com/embed/\(selectedRecipe?.recipekey)")],
             applicationActivities: nil)
             
          present(activityController, animated: true, completion: nil)

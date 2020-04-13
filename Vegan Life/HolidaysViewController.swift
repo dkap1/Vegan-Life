@@ -8,10 +8,14 @@
 
 import UIKit
 
-class HolidaysViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HolidayHomeModelProtocol {
+class HolidaysViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HolidayHomeModelProtocol,
+UISearchResultsUpdating, UISearchBarDelegate {
 
- var feedItems: NSArray = NSArray()
+ var feedItems = [HolidayModel]()
  var selectedHoliday: HolidayModel = HolidayModel()
+ var filteredHoliday = [HolidayModel]()
+    
+let searchController = UISearchController(searchResultsController: nil)
 
     @IBOutlet weak var listHolidayTableView: UITableView!
     override func viewDidLoad() {
@@ -25,20 +29,61 @@ class HolidaysViewController: UIViewController, UITableViewDataSource, UITableVi
                let holidayModel = HolidayHomeModel()
                holidayModel.delegate = self
                holidayModel.downloadItems()
+        
+        
+                   
+               filteredHoliday = feedItems
+                                 
+                searchController.searchResultsUpdater = self
+                searchController.dimsBackgroundDuringPresentation = false
+                definesPresentationContext = true
+                                 
+                listHolidayTableView.tableHeaderView = searchController.searchBar
+                             
+                searchController.searchBar.scopeButtonTitles = ["All", "Hotel", "Adventure", "Beach", "Culture"]
+                searchController.searchBar.delegate = self
+                               
+                                 
+              self.listHolidayTableView.register(UITableViewCell.self, forCellReuseIdentifier: "HolidayCell")
+        
            }
            func itemsDownloaded(items: NSArray) {
-               feedItems = items
+               feedItems = items as! [HolidayModel]
                self.listHolidayTableView.reloadData()
                print(items)
            }
+    func applySearch(searchText: String, scope: String = "All"){
+           if searchController.searchBar.text! == "" {
+               filteredHoliday = feedItems.filter{ feedItems in
+                   let HolidayCat = (scope == "All") || (feedItems.subcategory == scope)
+                   return HolidayCat
+           }
+           } else {
+                   filteredHoliday = feedItems.filter{ feedItems in
+                       let HolidayCat = (scope == "All") || (feedItems.subcategory == scope)
+                       return HolidayCat && feedItems.name!.lowercased().contains(searchText.lowercased())
+                   }
+               }
+           self.listHolidayTableView.reloadData()
+           
+       }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let selectedScope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        applySearch(searchText: searchController.searchBar.text!,scope: selectedScope)
+    }
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        applySearch(searchText: searchController.searchBar.text!,scope: searchBar.scopeButtonTitles![selectedScope])
+        
+    }
            func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-               return feedItems.count
+               return filteredHoliday.count
            }
            func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                let cellIdentifier: String = "HolidayCell"
                let myCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
-                    let item: HolidayModel = self.feedItems[indexPath.row] as! HolidayModel
-                    myCell.textLabel!.text = item.name
+               myCell.textLabel!.text = filteredHoliday[indexPath.row].name
                     
                
             

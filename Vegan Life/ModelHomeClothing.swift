@@ -57,6 +57,7 @@ class ModelHomeClothing: NSObject, URLSessionDelegate {
             let phoneno = jsonElement["phoneno"] as? String,
             let emailaddress = jsonElement["emailaddress"] as? String,
             let category = jsonElement["category"] as? String,
+            let subcategory = jsonElement["subcategory"] as? String,
             let businessdescription = jsonElement["businessdescription"] as? String
             {
                 clothing.businessid = businessid
@@ -65,6 +66,7 @@ class ModelHomeClothing: NSObject, URLSessionDelegate {
                 clothing.phoneno = phoneno
                 clothing.emailaddress = emailaddress
                 clothing.category = category
+                clothing.subcategory = subcategory
                 clothing.businessdescription = businessdescription
             }
             

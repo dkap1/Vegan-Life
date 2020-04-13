@@ -8,10 +8,15 @@
 
 import UIKit
 
-class FinanceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FinanceHomeModelProtocol {
+class FinanceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FinanceHomeModelProtocol,
+UISearchBarDelegate, UISearchResultsUpdating {
    
-    var feedItems: NSArray = NSArray()
+    var feedItems = [FinanceModel]()
     var selectedFinance: FinanceModel = FinanceModel()
+    var filteredFinance = [FinanceModel]()
+       
+    let searchController = UISearchController(searchResultsController: nil)
+         
 
     @IBOutlet weak var listFinanceTableView: UITableView!
    
@@ -27,20 +32,59 @@ class FinanceViewController: UIViewController, UITableViewDataSource, UITableVie
             let financeModel = FinanceHomeModel()
             financeModel.delegate = self
             financeModel.downloadItems()
+            
+            
+            filteredFinance = feedItems
+                          
+            searchController.searchResultsUpdater = self
+            searchController.dimsBackgroundDuringPresentation = false
+            definesPresentationContext = true
+                          
+            listFinanceTableView.tableHeaderView = searchController.searchBar
+                      
+            searchController.searchBar.scopeButtonTitles = ["All", "Savings", "Pensions", "ISA"]
+            searchController.searchBar.delegate = self
+                        
+                          
+                   self.listFinanceTableView.register(UITableViewCell.self, forCellReuseIdentifier: "FinanceCell")
         }
         func itemsDownloaded(items: NSArray) {
-            feedItems = items
+            feedItems = items as! [FinanceModel]
             self.listFinanceTableView.reloadData()
             print(items)
         }
+    func applySearch(searchText: String, scope: String = "All"){
+           if searchController.searchBar.text! == "" {
+               filteredFinance = feedItems.filter{ feedItems in
+                   let FinanceCat = (scope == "All") || (feedItems.subcategory == scope)
+                   return FinanceCat
+           }
+           } else {
+                   filteredFinance = feedItems.filter{ feedItems in
+                       let FinanceCat = (scope == "All") || (feedItems.subcategory == scope)
+                       return FinanceCat && feedItems.name!.lowercased().contains(searchText.lowercased())
+                   }
+               }
+           self.listFinanceTableView.reloadData()
+           
+       }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let selectedScope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        applySearch(searchText: searchController.searchBar.text!,scope: selectedScope)
+    }
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        applySearch(searchText: searchController.searchBar.text!,scope: searchBar.scopeButtonTitles![selectedScope])
+        
+    }
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return feedItems.count
+            return filteredFinance.count
         }
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cellIdentifier: String = "FinanceCell"
             let myCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
-           let item: FinanceModel = feedItems[indexPath.row] as! FinanceModel
-          myCell.textLabel!.text = item.name
+            myCell.textLabel!.text = filteredFinance[indexPath.row].name
             return myCell
         }
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){

@@ -58,6 +58,7 @@ class HomeModel: NSObject {
             let phoneno = jsonElement["phoneno"] as? String,
             let emailaddress = jsonElement["emailaddress"] as? String,
             let category = jsonElement["category"] as? String,
+            let subcategory = jsonElement["subcategory"] as? String,
             let businessdescription = jsonElement["businessdescription"] as? String
             {
                 service.businessid = businessid
@@ -66,6 +67,7 @@ class HomeModel: NSObject {
                 service.phoneno = phoneno
                 service.emailaddress = emailaddress
                 service.category = category
+                service.subcategory = subcategory
                 service.businessdescription = businessdescription
             }
             

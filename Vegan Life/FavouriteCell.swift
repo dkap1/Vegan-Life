@@ -10,6 +10,9 @@ import UIKit
 
 class FavouriteCell: UITableViewCell {
 
+  
+    
+  
     
     override func awakeFromNib() {
         super.awakeFromNib()
