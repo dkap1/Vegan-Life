@@ -13,7 +13,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
      var resultSearchController = UISearchController()
      var favorites  = [RecipeModel]()
      var dan = FavoritesViewController()
+     var isLiked = false
+     var heartButton = RecipeCell()
     
+   
  
 
      
@@ -25,15 +28,14 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
      
     @IBOutlet var listRecipeTableView: UITableView!
-
+ 
     
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-    
-        
+
         
                self.listRecipeTableView.delegate = self
                self.listRecipeTableView.dataSource = self
@@ -102,6 +104,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         myCell.imageView?.image = placeholderImage
         if searchController.isActive && searchController.searchBar.text != "" {
             recipe = filteredRecipe[indexPath.row]
+
             let url = "https://img.youtube.com/vi/\(recipe.recipekey!)/0.jpg"
             myCell.imageView?.downloaded(from: url)
         } else {
@@ -110,11 +113,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             myCell.imageView?.downloaded(from: url)
         // let item: RecipeModel = feedItems[indexPath.row] as! RecipeModel
         
-          
+         
         
         }
+        
            myCell.textLabel!.text = recipe.recipetitle
-         
+           
           
         
      
@@ -132,8 +136,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
       else {
         selectedRecipe = feedItems[indexPath.row]
+        
+        //selectedRecipe = feedItems[indexPath.row] as! RecipeModel'
+    
         }
-        //selectedRecipe = feedItems[indexPath.row] as! RecipeModel
+      
+        
     self.performSegue(withIdentifier: "toRecipe", sender: self)
       
     }
@@ -142,68 +150,86 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
       }
    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
-                if self.searchController.isActive && self.searchController.searchBar.text != "" {
-                    self.filteredRecipe.remove(at: indexPath.row)
-                    self.listRecipeTableView.reloadData()
-                    completionHandler(true)
-                       }
-               else {
-                    self.feedItems.remove(at: indexPath.row)
-                    self.listRecipeTableView.reloadData()
-                         
-                 
-                             }
-
-               }
                let unfavorite =  UIContextualAction(style: .destructive, title: "Unfavorite") { (action, view, completionHandler) in
-                   if let idx = self.favorites.firstIndex(where: { $0 === self.feedItems[indexPath.row] }) {
+                if self.searchController.isActive && self.searchController.searchBar.text != "" {
+                    if let idx = self.favorites.firstIndex(where: { $0 === self.filteredRecipe[indexPath.row] }) {
                        self.favorites.remove(at: idx)
+                       self.isLiked = false
+                       print("Tinki")
                        completionHandler(true)
-                  }
-                   
-               }
+                     
+                        
+                       
+                    }
+                
+                } else {
+                    if let idx = self.favorites.firstIndex(where: { $0 === self.feedItems[indexPath.row] }) {
+                    self.favorites.remove(at: idx)
+                        self.isLiked = false
+                    print("Danyaal")
+                     completionHandler(true)
+                    
+                     }
+                    }
+                
+            }
               let favorite =  UIContextualAction(style: .destructive, title: "Favourite") { (action, view, completionHandler) in
-                   if let idx = self.favorites.firstIndex(where: { $0 === self.feedItems[indexPath.row] }) {
-                   print("Sorry")
-                 
                if self.searchController.isActive && self.searchController.searchBar.text != "" {
-                  
                           self.favorites.append(self.filteredRecipe[indexPath.row])
                                  print(self.favorites)
-                       //  self.dan.listFavTableView?.reloadData()
+                                  self.isLiked = true
+                                  completionHandler(true)
                 
                    }
                
-           }
+           
                          else {
                           self.favorites.append(self.feedItems[indexPath.row])
                                 print(self.favorites)
-                     //    self.dan.listFavTableView?.reloadData()
-                           completionHandler(true)
+                                self.isLiked = true
+                                completionHandler(true)
+                   
+                
+                         
                    
                            }
+                 
                }
                    favorite.backgroundColor = UIColor.lightGray
                    favorite.image = UIImage(systemName: "heart")
+
+      
+   
+                   
               
 
-               
-                  if let idx = self.favorites.firstIndex(where: { $0 === self.feedItems[indexPath.row] }) {
+                 if self.searchController.isActive && self.searchController.searchBar.text != "" {
+                 if let idx = self.favorites.firstIndex(where: { $0 === self.filteredRecipe[indexPath.row] }) {
                  unfavorite.backgroundColor = UIColor.red
                  unfavorite.image = UIImage(systemName: "heart.fill")
+                    
                 
                     
-    
 
             let unfav = UISwipeActionsConfiguration(actions: [unfavorite])
                  return unfav
                
-                
-    
+                    }
+            
+                 } else {
                     
+                    if let idx = self.favorites.firstIndex(where: { $0 === self.feedItems[indexPath.row] }) {
+                                 unfavorite.backgroundColor = UIColor.red
+                                 unfavorite.image = UIImage(systemName: "heart.fill")
+                            let unfav = UISwipeActionsConfiguration(actions: [unfavorite])
+                                 return unfav
+                               
+    //h
+                    }
+                
+                  
+                                
         }
-
                    
                let fav = UISwipeActionsConfiguration(actions: [favorite])
                return fav
@@ -233,7 +259,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
            searchController.searchBar.placeholder = "Search by Recipe/Ingredients"
            searchController.hidesNavigationBarDuringPresentation = false
            searchController.automaticallyShowsCancelButton = true
-           
           
            
            listRecipeTableView.tableHeaderView = searchController.searchBar
@@ -247,6 +272,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.listRecipeTableView.reloadData()
     
     }
+
     
     
    

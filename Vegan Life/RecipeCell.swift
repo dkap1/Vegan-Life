@@ -40,7 +40,7 @@ class RecipeCell: UITableViewCell{
       if heartButton.tag == 0{
               heartButton.setImage(UIImage(named: "heart1" ), for: .normal)
               heartButton.tag = 1
-              buttonPressed()
+             // buttonPressed()
             
       
                

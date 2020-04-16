@@ -14,6 +14,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
 
     var favorites  = [RecipeModel]()
     var selectedRecipe: RecipeModel = RecipeModel()
+   
     
    
     
@@ -62,6 +63,18 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
                 
               
               }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    let remove = UIContextualAction(style: .destructive, title: "Remove") { (action, view, completionHandler) in
+        self.favorites.remove(at: indexPath.row)
+        self.listFavTableView.reloadData()
+                
+                completionHandler(true)
+                   }
+            let removed = UISwipeActionsConfiguration(actions: [remove])
+                          return removed
+                             
+
+           }
       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          
       selectedRecipe = favorites[indexPath.row]
