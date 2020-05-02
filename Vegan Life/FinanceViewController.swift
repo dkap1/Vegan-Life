@@ -26,6 +26,9 @@ UISearchBarDelegate, UISearchResultsUpdating {
 
             navigationController?.navigationBar.prefersLargeTitles = true
             
+            self.view.backgroundColor = UIColor.init(red: 255/255, green: 127/255, blue: 127/255, alpha: 1)
+            self.listFinanceTableView.backgroundColor = UIColor.init(red: 255/255, green: 127/255, blue: 127/255, alpha: 1)
+            
             self.listFinanceTableView.delegate = self
             self.listFinanceTableView.dataSource = self
             
@@ -85,6 +88,7 @@ UISearchBarDelegate, UISearchResultsUpdating {
             let cellIdentifier: String = "FinanceCell"
             let myCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
             myCell.textLabel!.text = filteredFinance[indexPath.row].name
+            myCell.backgroundColor = UIColor.init(red: 255/255, green: 127/255, blue: 127/255, alpha: 1)
             return myCell
         }
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){

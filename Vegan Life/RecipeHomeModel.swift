@@ -54,12 +54,20 @@ class RecipeHomeModel: NSObject, URLSessionDelegate {
             if let recipeid = jsonElement["recipeid"] as? String,
             let recipetitle = jsonElement["recipetitle"] as? String,
             let recipekey = jsonElement["recipekey"] as? String,
-            let recipeingredients = jsonElement["recipeingredients"] as? String
+            let recipeingredients = jsonElement["recipeingredients"] as? String,
+            let recipeauthor = jsonElement["recipeauthor"] as? String,
+            let recipeserving = jsonElement["recipeserving"] as? String,
+            let recipecookingtime = jsonElement["recipecookingtime"] as? String
             {
                 recipe.recipeid = recipeid
                 recipe.recipetitle = recipetitle
                 recipe.recipekey = recipekey
                 recipe.recipeingredients = recipeingredients
+                recipe.recipeauthor = recipeauthor
+                recipe.recipeserving = recipeserving
+                recipe.recipecookingtime = recipecookingtime
+             
+                
                 
             }
             

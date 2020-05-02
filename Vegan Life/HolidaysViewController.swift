@@ -22,7 +22,11 @@ let searchController = UISearchController(searchResultsController: nil)
                super.viewDidLoad()
 
                navigationController?.navigationBar.prefersLargeTitles = true
+        
+        self.view.backgroundColor = UIColor.init(red:177/255, green: 156/255, blue: 217/255, alpha: 1)
                
+        self.listHolidayTableView.backgroundColor = UIColor.init(red:177/255, green: 156/255, blue: 217/255, alpha: 1)
+        
                self.listHolidayTableView.delegate = self
                self.listHolidayTableView.dataSource = self
                
@@ -84,6 +88,7 @@ let searchController = UISearchController(searchResultsController: nil)
                let cellIdentifier: String = "HolidayCell"
                let myCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
                myCell.textLabel!.text = filteredHoliday[indexPath.row].name
+               myCell.backgroundColor = UIColor.init(red:177/255, green: 156/255, blue: 217/255, alpha: 1)
                     
                
             

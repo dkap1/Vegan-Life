@@ -27,6 +27,9 @@ class ClothingViewController: UIViewController, UITableViewDataSource, UITableVi
 
             navigationController?.navigationBar.prefersLargeTitles = true
             
+            self.view.backgroundColor = UIColor.init(red: 254/255, green: 216/255, blue: 177/255, alpha: 1)
+            self.listClothingTableView.backgroundColor = UIColor.init(red: 254/255, green: 216/255, blue: 177/255, alpha: 1)
+            
             self.listClothingTableView.delegate = self
             self.listClothingTableView.dataSource = self
             
@@ -45,6 +48,7 @@ class ClothingViewController: UIViewController, UITableViewDataSource, UITableVi
                
             searchController.searchBar.scopeButtonTitles = ["All", "Mens", "Womens", "Accessories"]
             searchController.searchBar.delegate = self
+            
                  
                    
             self.listClothingTableView.register(UITableViewCell.self, forCellReuseIdentifier: "ClothingCell")
@@ -89,6 +93,7 @@ class ClothingViewController: UIViewController, UITableViewDataSource, UITableVi
             let cellIdentifier: String = "ClothingCell"
             let myCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
             myCell.textLabel!.text = filteredClothing[indexPath.row].name
+            myCell.backgroundColor = UIColor.init(red: 254/255, green: 216/255, blue: 177/255, alpha: 1)
             
             return myCell
         }

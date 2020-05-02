@@ -23,7 +23,9 @@ UISearchBarDelegate, UISearchResultsUpdating {
               super.viewDidLoad()
 
               navigationController?.navigationBar.prefersLargeTitles = true
-              
+              self.view.backgroundColor = UIColor.init(red: 144/255, green: 238/255, blue: 144/255, alpha: 1)
+        self.listGroceryTableView.backgroundColor =  UIColor.init(red: 144/255, green: 238/255, blue: 144/255, alpha: 1)
+        
               self.listGroceryTableView.delegate = self
               self.listGroceryTableView.dataSource = self
               
@@ -85,6 +87,7 @@ UISearchBarDelegate, UISearchResultsUpdating {
               let cellIdentifier: String = "GroceryCell"
               let myCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
             myCell.textLabel!.text = filteredGrocery[indexPath.row].name
+            myCell.backgroundColor = UIColor.init(red: 144/255, green: 238/255, blue: 144/255, alpha: 1)
                  
                
             

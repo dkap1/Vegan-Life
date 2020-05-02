@@ -2,7 +2,7 @@ import UIKit
 import CoreData
 
 
-class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RecipeHomeModelProtocol{
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RecipeHomeModelProtocol {
    
     
     
@@ -15,16 +15,18 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
      var dan = FavoritesViewController()
      var isLiked = false
      var heartButton = RecipeCell()
+   
+     
+    
     
    
- 
-
      
     
     
     
     
      let searchController = UISearchController(searchResultsController: nil)
+     
 
      
     @IBOutlet var listRecipeTableView: UITableView!
@@ -32,6 +34,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        self.view.backgroundColor = UIColor.init(red: 147/255, green: 179/255, blue: 89/255, alpha: 1)
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
@@ -51,7 +54,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
       
        
     
-        navigationItem.rightBarButtonItems = [add, refresh]
+     navigationItem.rightBarButtonItems = [add, refresh]
          
       
         listRecipeTableView.tableFooterView = UIView()
@@ -59,6 +62,21 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
        navigationItem.largeTitleDisplayMode = .always
       
+
+            if let data = UserDefaults.standard.object(forKey: "favorites") as? Data {
+            if let storedData = NSKeyedUnarchiver.unarchiveObject(with: data) as? [RecipeModel] {
+                favorites = storedData
+              
+                   
+                  
+                }
+
+            
+            
+        }
+            
+       
+       
     }
            
 
@@ -67,11 +85,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     self.navigationController?.pushViewController(newViewController, animated: true)
        
     }
-   @objc func refresh(sender: UIBarButtonItem) {
+  @objc func refresh(sender: UIBarButtonItem) {
   performSegue(withIdentifier: "toFav", sender: self)
     
+    
       
-   }
+ }
     
     func itemsDownloaded(items: NSArray) {
         feedItems = items as! [RecipeModel]
@@ -116,7 +135,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
          
         
         }
-        
            myCell.textLabel!.text = recipe.recipetitle
            
           
@@ -146,7 +164,19 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
       
     }
      func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-          return true
+        if self.searchController.isActive && self.searchController.searchBar.text != "" {
+            if favorites.contains(filteredRecipe[indexPath.row]){
+        
+          return false
+            }
+        }
+        else {
+            if favorites.contains(feedItems[indexPath.row]){
+                   
+                     return false
+                       }
+        }
+        return true
       }
    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -154,30 +184,57 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 if self.searchController.isActive && self.searchController.searchBar.text != "" {
                     if let idx = self.favorites.firstIndex(where: { $0 === self.filteredRecipe[indexPath.row] }) {
                        self.favorites.remove(at: idx)
+                       self.save()
                        self.isLiked = false
                        print("Tinki")
+                        DispatchQueue.main.async
+                        {
+
+                            let alert = UIAlertController(title: "Recipe Removed", message: "\(self.filteredRecipe[indexPath.row].recipetitle!) removed from favorites 💔", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                        }
                        completionHandler(true)
                      
                         
-                       
+                    
                     }
                 
                 } else {
                     if let idx = self.favorites.firstIndex(where: { $0 === self.feedItems[indexPath.row] }) {
                     self.favorites.remove(at: idx)
+                        self.save()
                         self.isLiked = false
                     print("Danyaal")
+                        
+                    DispatchQueue.main.async
+                                           {
+
+                                               let alert = UIAlertController(title: "Recipe Removed", message: "\(self.feedItems[indexPath.row].recipetitle!) removed from favorites 💔", preferredStyle: .alert)
+                                           alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                                           self.present(alert, animated: true, completion: nil)
+                                           }
                      completionHandler(true)
                     
                      }
                     }
+               
+                
                 
             }
               let favorite =  UIContextualAction(style: .destructive, title: "Favourite") { (action, view, completionHandler) in
                if self.searchController.isActive && self.searchController.searchBar.text != "" {
                           self.favorites.append(self.filteredRecipe[indexPath.row])
                                  print(self.favorites)
+                self.save()
                                   self.isLiked = true
+                DispatchQueue.main.async
+                                       {
+
+                                           let alert = UIAlertController(title: "Recipe Added", message: "\(self.filteredRecipe[indexPath.row].recipetitle!) added to favorites ❤️", preferredStyle: .alert)
+                                       alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                                       self.present(alert, animated: true, completion: nil)
+                                       }
                                   completionHandler(true)
                 
                    }
@@ -187,16 +244,26 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                           self.favorites.append(self.feedItems[indexPath.row])
                                 print(self.favorites)
                                 self.isLiked = true
+                self.save()
+                DispatchQueue.main.async
+                                       {
+
+                                           let alert = UIAlertController(title: "Recipe Added", message: "\(self.feedItems[indexPath.row].recipetitle!) added to favorites ❤️", preferredStyle: .alert)
+                                       alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                                       self.present(alert, animated: true, completion: nil)
+                                       }
                                 completionHandler(true)
+                                
                    
                 
                          
                    
                            }
-                 
+   
                }
                    favorite.backgroundColor = UIColor.lightGray
                    favorite.image = UIImage(systemName: "heart")
+                 
 
       
    
@@ -205,6 +272,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
                  if self.searchController.isActive && self.searchController.searchBar.text != "" {
                  if let idx = self.favorites.firstIndex(where: { $0 === self.filteredRecipe[indexPath.row] }) {
+                    
                  unfavorite.backgroundColor = UIColor.red
                  unfavorite.image = UIImage(systemName: "heart.fill")
                     
@@ -217,66 +285,82 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     }
             
                  } else {
-                    
-                    if let idx = self.favorites.firstIndex(where: { $0 === self.feedItems[indexPath.row] }) {
+                       if favorites.contains(feedItems[indexPath.row]) {
+                        if let idx = self.favorites.firstIndex(where: { $0 === self.feedItems[indexPath.row] }) {
                                  unfavorite.backgroundColor = UIColor.red
                                  unfavorite.image = UIImage(systemName: "heart.fill")
-                            let unfav = UISwipeActionsConfiguration(actions: [unfavorite])
+                                 let unfav = UISwipeActionsConfiguration(actions: [unfavorite])
                                  return unfav
-                               
-    //h
-                    }
-                
-                  
-                                
-        }
-                   
-               let fav = UISwipeActionsConfiguration(actions: [favorite])
-               return fav
-                  
-                   
-               
+                        }
 
+                    }
+                    
+                   
+        
+            
+        }
+        if favorites.contains(where: { $0.recipeid == feedItems[indexPath.row].recipeid }) {
+           unfavorite.backgroundColor = UIColor.red
+           unfavorite.image = UIImage(systemName: "heart.fill")
+           let unfav = UISwipeActionsConfiguration(actions: [unfavorite])
+           return unfav
+                                  } else {
+                                       // not
+                                  }
+        let fav = UISwipeActionsConfiguration(actions: [favorite])
+        return fav
+                  
+              
+            
     }
+
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toRecipe"){
             let VVC = segue.destination as? VideoViewController
             VVC?.selectedRecipe = selectedRecipe
+            VVC?.favorites = favorites
         } else {
                 if(segue.identifier == "toFav"){
                    let FFC = segue.destination as? FavoritesViewController
                     FFC?.favorites = favorites
+                    FFC?.firstVC = self
                 }
             }
-        
+    
         
     }
     func setupSearchController() {
            definesPresentationContext = true
            searchController.dimsBackgroundDuringPresentation = false
            searchController.searchResultsUpdater = self
-           searchController.searchBar.placeholder = "Search by Recipe/Ingredients"
+           searchController.searchBar.placeholder = "Search by Recipe/Ingredients/Author"
            searchController.hidesNavigationBarDuringPresentation = false
            searchController.automaticallyShowsCancelButton = true
+           searchController.searchBar.tintColor = UIColor.init(red: 116/255, green: 131/255, blue: 91/255, alpha: 1)
+    
           
            
            listRecipeTableView.tableHeaderView = searchController.searchBar
        }
     func filterRowsForSearchedText(_ searchText: String) {
             filteredRecipe = feedItems.filter({( recipe : RecipeModel) -> Bool in
-        return (recipe.recipetitle!.lowercased().contains(searchText.lowercased())||recipe.recipeingredients!.lowercased().contains(searchText.lowercased()))
+        return (recipe.recipetitle!.lowercased().contains(searchText.lowercased())||recipe.recipeingredients!.lowercased().contains(searchText.lowercased())||recipe.recipeauthor!.lowercased().contains(searchText.lowercased()))
  
              
         })
             self.listRecipeTableView.reloadData()
     
     }
-
-    
+    func save(){
+              let data = NSKeyedArchiver.archivedData(withRootObject: favorites)
+                                UserDefaults.standard.set(data, forKey: "favorites")
+                                UserDefaults.standard.synchronize()
+          }
+}
     
    
-}
+
 extension UIImageView {
     func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
         contentMode = mode

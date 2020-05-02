@@ -10,12 +10,28 @@ import Foundation
 import UIKit
 import MessageUI
 
-class RequestRecipeViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class RequestRecipeViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextViewDelegate {
     @IBOutlet var Body: UITextView!
     @IBOutlet var Subject: UITextField!
+    @IBOutlet weak var emailSubmit: UIButton!
     
     override func viewDidLoad() {
         
+        emailSubmit.backgroundColor = UIColor.init(red: 48/255, green: 155/255, blue: 255/255, alpha: 1)
+                      emailSubmit.layer.cornerRadius = 25.0
+                      emailSubmit.tintColor = UIColor.white
+        
+        Body.delegate = self
+        
+        Body.text = "Enter Business Information..."
+        Body.textColor = UIColor.lightGray
+        
+        let colour = UIColor.lightGray.cgColor
+               Body.layer.borderColor = colour
+               Body.layer.borderWidth = 0.5
+               Body.layer.cornerRadius = 5
+        
+        self.view.backgroundColor = UIColor.init(red:188/255, green: 188/255, blue: 188/255, alpha: 1)
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
@@ -27,7 +43,7 @@ class RequestRecipeViewController: UIViewController, MFMailComposeViewController
                 return
         }
         
-        var SubjectText = "Recipe Request: "
+        var SubjectText = "Request To Add Business: "
         SubjectText += Subject.text!
         
         var MessageBody =  Body
@@ -68,4 +84,21 @@ class RequestRecipeViewController: UIViewController, MFMailComposeViewController
         }
         self.dismiss(animated: true, completion: nil)
     }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+             if Body.textColor == UIColor.lightGray {
+                Body.text = nil
+                Body.textColor = UIColor.black
+             }
+         
+         }
+         func textViewDidEndEditing(_ textView: UITextView) {
+             if Body.text.isEmpty{
+                 Body.text = "Enter Recipe Ingredients"
+                Body.textColor = UIColor.lightGray
+                 
+             }
+        
+          
+         }
+    
 }
