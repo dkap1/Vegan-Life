@@ -25,6 +25,9 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
     
     @IBOutlet weak var submitButton: UIButton!
     
+     let maxServesLength = 5
+     let acceptableNumbers = "0123456789"
+    
     func checkYoutube(link: String) -> String? {
         let pattern = "((?<=(v|V)/)|(?<=be/)|(?<=(\\?|\\&)v=)|(?<=embed/))([\\w-]++)"
         guard let regExp = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive) else {
@@ -92,42 +95,83 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == recipetitle {
-        let maxLength = 70
-            let currentString: NSString = recipetitle.text! as NSString
-            let newString: NSString =
-                  currentString.replacingCharacters(in: range, with: string) as NSString
-        
-        if newString.length > maxLength {
-                                   let alert = UIAlertController(title: "Maximum Recipe Title Character Limit Reached", message: "Recipe Title Should Be Under 70 Characters. Please Re-enter.", preferredStyle: .alert)
-                                   alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                                   self.present(alert, animated: true, completion: nil)
-                                   }
-        
-       // return currentString.length <= maxLength
+          if textField == recipetitle {
+          let maxLength = 70
+              let currentString: NSString = recipetitle.text! as NSString
+              let newString: NSString =
+                    currentString.replacingCharacters(in: range, with: string) as NSString
+          
+          if newString.length > maxLength {
+                                     let alert = UIAlertController(title: "Maximum Recipe Title Character Limit Reached", message: "Recipe Title Should Not Be More Than 70 Characters", preferredStyle: .alert)
+                                     alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                                     self.present(alert, animated: true, completion: nil)
+                                     }
+          
+         // return currentString.length <= maxLength
+          }
+              if textField == recipeauthor {
+                  let maxLength = 20
+                             let currentString: NSString = recipeauthor.text! as NSString
+                             let newString: NSString =
+                                   currentString.replacingCharacters(in: range, with: string) as NSString
+                         
+                         if newString.length > maxLength {
+                                                    let alert = UIAlertController(title: "Maximum Recipe Author Character Limit Reached", message: "Author Should Not Be More Than 20 Characters", preferredStyle: .alert)
+                                                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                                                    self.present(alert, animated: true, completion: nil)
+                                                    }
+                         
+              
+                         //return currentString.length <= maxLength
+              
         }
-        else {
-            if textField == recipeauthor {
-                let maxLength = 20
-                           let currentString: NSString = recipeauthor.text! as NSString
-                           let newString: NSString =
-                                 currentString.replacingCharacters(in: range, with: string) as NSString
-                       
-                       if newString.length > maxLength {
-                                                  let alert = UIAlertController(title: "Maximum Recipe Author Character Limit Reached", message: "Author Should Be Under 20 Characters. Please Re-enter.", preferredStyle: .alert)
-                                                  alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                                                  self.present(alert, animated: true, completion: nil)
-                                                  }
-                       
+        if textField == recipect {
+            let maxLength = 20
+                       let currentString: NSString = recipect.text! as NSString
+                       let newString: NSString =
+                             currentString.replacingCharacters(in: range, with: string) as NSString
+                   
+                   if newString.length > maxLength {
+                                              let alert = UIAlertController(title: "Maximum Recipe Cooking Time Character Limit Reached", message: "Cooking Time Should Not Be More Than 20 Characters", preferredStyle: .alert)
+                                              alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                                              self.present(alert, animated: true, completion: nil)
+                                              }
+                   
+        
+                  // return currentString.length <= maxLength
+        }
+        if textField == recipeserves {
+            let newLength: Int = recipeserves.text!.count + string.count - range.length
+                       let numberOnly = NSCharacterSet.init(charactersIn: acceptableNumbers).inverted
+                       let strValid = string.rangeOfCharacter(from: numberOnly) == nil
             
-                       return currentString.length <= maxLength
+           
+            
+            if strValid && (newLength > maxServesLength){
+               let alert = UIAlertController(title: "Maximum Recipe Cooking Time Character Limit Reached", message: "Recipe Serving Should Not Be More Than 5 Characters", preferredStyle: .alert)
+                                                            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                                                            self.present(alert, animated: true, completion: nil)
+                
             }
+            
+                       if strValid == false {
+                          let alert = UIAlertController(title: "Error", message: "This field only accepts numbers", preferredStyle: .alert)
+                                                                       alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                                                                       self.present(alert, animated: true, completion: nil)
+                           
                        }
             
-        return true
-         
-    
-    }
+        return (strValid && (newLength <= maxServesLength))
+                
+        }
+                return true
+                   }
+        
+
+     
+           
+      
+      
     func textViewDidBeginEditing(_ textView: UITextView) {
            if recipeingredients.textColor == UIColor.lightGray {
                recipeingredients.text = nil
@@ -144,6 +188,20 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
       
         
        }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n"){
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+   
+    
+    
     override func viewDidLoad() {
         
         self.view.backgroundColor = UIColor.init(red: 250/255, green: 220/255, blue: 171/255, alpha: 1)
@@ -155,6 +213,8 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
         recipetitle.delegate = self
         recipekey.delegate = self
         recipeauthor.delegate = self
+        recipect.delegate = self
+        recipeserves.delegate = self
         
         recipeingredients.text = "Enter Recipe Ingredients"
         recipeingredients.textColor = UIColor.lightGray
@@ -166,6 +226,10 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
         
      
         self.view.backgroundColor = UIColor.init(red: 250/255, green: 220/255, blue: 171/255, alpha: 1)
+        
+        recipeserves.keyboardType = .numberPad
+        
+        
         
               
         

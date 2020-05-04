@@ -12,7 +12,9 @@ class ResultsViewController: UIViewController {
 
     @IBOutlet weak var resultAnswerLabel: UILabel!
     @IBOutlet weak var resultDefinitionLabel: UILabel!
-    
+
+    @IBOutlet weak var resultEmoji: UILabel!
+
     
     var responses: [Answer]!
     
@@ -22,6 +24,10 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+      
+        
+        self.view.backgroundColor = UIColor.systemTeal
+        
         // Do any additional setup after loading the view.
         calculateDietResult()
         navigationItem.hidesBackButton = true
@@ -47,7 +53,32 @@ class ResultsViewController: UIViewController {
         resultAnswerLabel.text = "\(mostCommonAnswer.rawValue)!"
         resultDefinitionLabel.text = mostCommonAnswer.definition
         
-        
+        if resultAnswerLabel.text == "Poor!"{
+            resultEmoji.text = "💩"
+            self.view.backgroundColor = UIColor.systemRed
+          
+        }
+        else {
+            if resultAnswerLabel.text == "Bad!"{
+                resultEmoji.text = "🤒"
+                self.view.backgroundColor = UIColor.systemOrange
+                
+            }
+            else {
+                if resultAnswerLabel.text == "Average!"{
+                    resultEmoji.text = "😬"
+                    self.view.backgroundColor = UIColor.systemYellow
+                   
+                }
+                else {
+                    if resultAnswerLabel.text == "Good!"{
+                        resultEmoji.text = "😊"
+                        self.view.backgroundColor = UIColor.systemGreen
+                        
+                    }
+                }
+            }
+        }
         
     }
     

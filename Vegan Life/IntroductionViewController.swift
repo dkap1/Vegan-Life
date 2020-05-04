@@ -16,7 +16,7 @@ class IntroductionViewController: UIViewController {
     @IBOutlet weak var beginButton: UIButton!
     
     override func viewDidLoad() {
-        self.view.backgroundColor = UIColor.init(red: 250/255, green: 220/255, blue: 171/255, alpha: 1)
+        self.view.backgroundColor = UIColor.systemTeal
         beginButton.backgroundColor = UIColor.init(red: 48/255, green: 155/255, blue: 255/255, alpha: 1)
         beginButton.layer.cornerRadius = 25.0
         beginButton.tintColor = UIColor.white

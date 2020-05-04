@@ -28,7 +28,7 @@ class FinanceDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
       
-        self.view.backgroundColor = UIColor.init(red: 255/255, green: 127/255, blue: 127/255, alpha: 1)
+        self.view.backgroundColor = UIColor.systemRed
         
         financeDetailsName.text = selectedFinance?.name
         financeDetailsAddress.text = selectedFinance?.address
@@ -37,12 +37,12 @@ class FinanceDetailsViewController: UIViewController {
         financeDetailsCategory.text  = selectedFinance?.category
         financeDetailsDescription.text = selectedFinance?.businessdescription
     
-        financeDetailsName.backgroundColor = UIColor.init(red: 255/255, green: 127/255, blue: 127/255, alpha: 1)
-              financeDetailsAddress.backgroundColor = UIColor.init(red: 255/255, green: 127/255, blue: 127/255, alpha: 1)
-              financeDetailsPhone.backgroundColor = UIColor.init(red: 255/255, green: 127/255, blue: 127/255, alpha: 1)
-              financeDetailsEmail.backgroundColor = UIColor.init(red: 255/255, green: 127/255, blue: 127/255, alpha: 1)
-              financeDetailsCategory.backgroundColor = UIColor.init(red: 255/255, green: 127/255, blue: 127/255, alpha: 1)
-              financeDetailsDescription.backgroundColor = UIColor.init(red: 255/255, green: 127/255, blue: 127/255, alpha: 1)
+        financeDetailsName.backgroundColor = UIColor.systemRed
+              financeDetailsAddress.backgroundColor = UIColor.systemRed
+              financeDetailsPhone.backgroundColor = UIColor.systemRed
+              financeDetailsEmail.backgroundColor = UIColor.systemRed
+              financeDetailsCategory.backgroundColor = UIColor.systemRed
+              financeDetailsDescription.backgroundColor = UIColor.systemRed
           
         
         super.viewDidLoad()

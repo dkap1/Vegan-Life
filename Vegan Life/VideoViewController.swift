@@ -9,7 +9,7 @@
 import UIKit
 import Social
 
-class VideoViewController: UIViewController {
+class VideoViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate {
    
        var selectedRecipe: RecipeModel?
        var favorites  = [RecipeModel]()
@@ -33,12 +33,15 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var rpauthor: UILabel!
     var activityItems: [Any] = []
     
+    
 
     override func viewDidLoad() {
+       //videoWebView?.transform=CGAffineTransform(rotationAngle: CGFloat(Double.pi/2))
     self.view.backgroundColor = UIColor.init(red: 147/255, green: 179/255, blue: 89/255, alpha: 1)
         recipeIngredients.backgroundColor = UIColor.init(red: 147/255, green: 179/255, blue: 89/255, alpha: 1)
         super.viewDidLoad()
         
+        self.videoWebView.isMultipleTouchEnabled = true
        
        
 
@@ -90,6 +93,9 @@ class VideoViewController: UIViewController {
             
          present(activityController, animated: true, completion: nil)
            }
+    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
+      scrollView.pinchGestureRecognizer?.isEnabled = true
+    }
     
 }
             

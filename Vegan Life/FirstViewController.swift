@@ -34,11 +34,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        self.view.backgroundColor = UIColor.init(red: 147/255, green: 179/255, blue: 89/255, alpha: 1)
+        self.view.backgroundColor = UIColor.systemGreen
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-
+        self.listRecipeTableView.backgroundColor = UIColor.systemGreen
         
                self.listRecipeTableView.delegate = self
                self.listRecipeTableView.dataSource = self
@@ -136,6 +136,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         }
            myCell.textLabel!.text = recipe.recipetitle
+           myCell.backgroundColor = UIColor.systemGreen
            
           
         

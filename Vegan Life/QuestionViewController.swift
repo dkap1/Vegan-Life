@@ -47,47 +47,104 @@ class QuestionViewController: UIViewController {
     
     var questions: [Question] = [
     
-        Question(text: "How Many Meals Per Week Are Home Cooked?",
+        Question(text: "Assuming You Eat 21 Meals Per Week - How Many Meals Per Week Are Home Cooked?",
                  type: .single,
                  answers: [
-                    Answer(text: "A", type: .good),
-                    Answer(text: "B", type: .bad),
-                    Answer(text: "C", type: .average),
-                    Answer(text: "D", type: .reallybad)
+                    Answer(text: "Less than 7", type: .reallybad),
+                    Answer(text: "7 to 10", type: .bad),
+                    Answer(text: "11 to 14 ", type: .average),
+                    Answer(text: "15 to 21", type: .good),
+                  
                     
                     
                     
                     ]),
                     
-            Question(text: "How old am I?",
-                         type: .multiple,
+            Question(text: "What Beverage Do You Drink Most Often Each Day?",
+                         type: .single,
                          answers: [
-                            Answer(text: "20", type: .good),
-                            Answer(text: "12", type: .bad),
-                            Answer(text: "64", type: .average),
-                            Answer(text: "53", type: .reallybad)
+                            Answer(text: "Alcohol (Beer/Wine)", type: .reallybad),
+                            Answer(text: "Cofee/Caffeinated tea/energy drinks/sodas", type: .bad),
+                            Answer(text: "Herbal Tea/non-dairy milks(soy, rice, almond, etc)", type: .average),
+                            Answer(text: "Water - (pure, unsweetened, maybe with lemon)", type: .good),
+                           
                             
                             ]),
-            Question(text: "How do you enjoy car rides?",
-                            type: .ranged,
+            Question(text: "How Many Times Each Week Do You Eat A Large Salad As The Main Dish (For Lunch or Dinner)?",
+                            type: .single,
                             answers: [
-                            Answer(text: "I love them", type: .good),
-                            Answer(text: "I hate them", type: .bad),
-                            Answer(text: "They're ok!", type: .average),
-                            Answer(text: "Get me out", type: .reallybad)
+                            Answer(text: "Never", type: .reallybad),
+                            Answer(text: "1 to 3 meals per week", type: .bad),
+                            Answer(text: "4 to 7 meals per week", type: .average),
+                            Answer(text: "8+ meals per week", type: .good),
+                            
                                             
                                             
                                             ]),
-            Question(text: "How Depressed Am I?",
+            Question(text: "How many servings (about the size of your fist) of dark leafy greens (spinach , kale, arugula, etc) do you eat each day?",
                                        type: .single,
                                        answers: [
-                                       Answer(text: "Not at all", type: .good),
-                                       Answer(text: "Very but I can handle it ", type: .bad),
-                                       Answer(text: "Average!", type: .average),
-                                       Answer(text: "Very Very Depressed", type: .reallybad)
+                                       Answer(text: "Never", type: .reallybad),
+                                       Answer(text: "1 serving or less", type: .bad),
+                                       Answer(text: "2 serving per day", type: .average),
+                                       Answer(text: "3+ servings per day", type: .good),
                                                        
                                                        
                                                        ]),
+            Question(text: "How many servings of fresh fruit do you eat each day?",
+                                                 type: .single,
+                                                 answers: [
+                                                 Answer(text: "Never", type: .reallybad),
+                                                 Answer(text: "1 peice/serving per day", type: .bad),
+                                                 Answer(text: "2 peices/servings per day", type: .average),
+                                                 Answer(text: "3+ pieces/servings each day", type: .good),
+                                                ]),
+                                                 
+            Question(text: "When You Eat Grain or Starchy Carbohydrates, Which Do You Most Often Eat? ?",
+             type: .single,
+             answers: [
+             Answer(text: "None - I Avoid Carbs", type: .reallybad),
+             Answer(text: "Cookies/Cakes/French Fries", type: .bad),
+             Answer(text: "Sweet Potatoes", type: .average),
+             Answer(text: "Whole Grains (Quinoa, Brown Rice etc)", type: .good),
+                 ]),
+            Question(text: "How often do you eat legumes (beans, lentils etc)?",
+                                                          type: .single,
+                                                          answers: [
+                                                          Answer(text: "None - I never eat them", type: .reallybad),
+                                                          Answer(text: "A few times per month", type: .bad),
+                                                          Answer(text: "Once A Week", type: .average),
+                                                          Answer(text: "Daily or Almost Daily", type: .good),
+                                                         ]),
+            Question(text: "How much processed vegan foods do you have in your diet?",
+            type: .single,
+            answers: [
+            Answer(text: "I eat non-dairy cheeses, veggie burgers & sausages", type: .reallybad),
+            Answer(text: "I eat a combination of non-dairy cheeses and processed food", type: .bad),
+            Answer(text: "I eat some processed food (tofu, tempeh, and/or miso)", type: .average),
+            Answer(text: "I never eat any processed meat-alternative foods at all", type: .good),
+            
+            ]),
+                                                                                                       
+            Question(text: "How much and what kinds of fats do you eat most of the time?",
+            type: .single,
+            answers: [
+            Answer(text: "I avoid as much sources of fat as possible in my diet", type: .reallybad),
+            Answer(text: "I avoid eating trans fats but eat fried food/vegetable oils", type: .bad),
+            Answer(text: "I focus on healthy fats (avocados/seeds/nuts/coconut oil) in my diet", type: .average),
+            Answer(text: "I eat healthy fats and keep them to a minimum", type: .good),
+                                                                            
+                                                                            ]),
+            Question(text: "Do you take any supplements with your Vegan Diet",
+            type: .single,
+            answers: [
+            Answer(text: "I don't take any supplements", type: .reallybad),
+            Answer(text: "I sometimes take either Vitamin D/B12 supplements most/all days", type: .bad),
+            Answer(text: "I sometimes take both Vitamin B12/D supplements most/all days", type: .average),
+            Answer(text: "I take both Vitamin D/B12 supplements most/all days ", type: .good),
+                                                                            
+                                                                            ]),
+                                                            
                                             
             ]
         
@@ -99,7 +156,24 @@ class QuestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.systemTeal
+        singleButton1.backgroundColor = UIColor.init(red: 48/255, green: 155/255, blue: 255/255, alpha: 1)
+              singleButton1.layer.cornerRadius = 25.0
+              singleButton1.tintColor = UIColor.white
 
+        singleButton2.backgroundColor = UIColor.init(red: 48/255, green: 155/255, blue: 255/255, alpha: 1)
+                     singleButton2.layer.cornerRadius = 25.0
+                     singleButton2.tintColor = UIColor.white
+
+        singleButton3.backgroundColor = UIColor.init(red: 48/255, green: 155/255, blue: 255/255, alpha: 1)
+                     singleButton3.layer.cornerRadius = 25.0
+                     singleButton3.tintColor = UIColor.white
+
+        singleButton4.backgroundColor = UIColor.init(red: 48/255, green: 155/255, blue: 255/255, alpha: 1)
+                     singleButton4.layer.cornerRadius = 25.0
+                     singleButton4.tintColor = UIColor.white
+
+        
         // Do any additional setup after loading the view.
         updateUI()
         

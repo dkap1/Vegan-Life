@@ -26,8 +26,8 @@ UISearchBarDelegate, UISearchResultsUpdating {
 
             navigationController?.navigationBar.prefersLargeTitles = true
             
-            self.view.backgroundColor = UIColor.init(red: 255/255, green: 127/255, blue: 127/255, alpha: 1)
-            self.listFinanceTableView.backgroundColor = UIColor.init(red: 255/255, green: 127/255, blue: 127/255, alpha: 1)
+            self.view.backgroundColor = UIColor.systemGreen
+            self.listFinanceTableView.backgroundColor = UIColor.systemRed
             
             self.listFinanceTableView.delegate = self
             self.listFinanceTableView.dataSource = self
