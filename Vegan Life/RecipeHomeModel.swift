@@ -57,7 +57,11 @@ class RecipeHomeModel: NSObject, URLSessionDelegate {
             let recipeingredients = jsonElement["recipeingredients"] as? String,
             let recipeauthor = jsonElement["recipeauthor"] as? String,
             let recipeserving = jsonElement["recipeserving"] as? String,
-            let recipecookingtime = jsonElement["recipecookingtime"] as? String
+                let recipecookingtime = jsonElement["recipecookingtime"] as? String,
+            let recipecategory = jsonElement["recipecategory"] as? String,
+            let recipenuts = jsonElement["recipenuts"] as? String,
+            let recipegf = jsonElement["recipegf"] as? String
+          
             {
                 recipe.recipeid = recipeid
                 recipe.recipetitle = recipetitle
@@ -66,6 +70,9 @@ class RecipeHomeModel: NSObject, URLSessionDelegate {
                 recipe.recipeauthor = recipeauthor
                 recipe.recipeserving = recipeserving
                 recipe.recipecookingtime = recipecookingtime
+                recipe.recipecategory = recipecategory
+                recipe.recipenuts = recipenuts
+                recipe.recipegf = recipegf
              
                 
                 

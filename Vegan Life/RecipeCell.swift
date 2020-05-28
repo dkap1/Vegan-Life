@@ -17,10 +17,18 @@ class RecipeCell: UITableViewCell{
      var buttonPressed : (() -> ()) = {}
      var delegate: RecipeCellDelegate?
     
+    let H = UIScreen.main.bounds.height
+    let W = UIScreen.main.bounds.width
+    
+     
+    
     
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeTitleVideo: UILabel!
-
+    
+    
+    
+    
     @IBOutlet weak var heartButton: UIButton!
   
     @IBAction func favoriteButtonTapped(_ sender: Any) {
@@ -29,7 +37,7 @@ class RecipeCell: UITableViewCell{
     
     
     
-    
+   
 
     
     
@@ -59,8 +67,9 @@ class RecipeCell: UITableViewCell{
               }
  
     
-            
+
      
           }
+
 
 

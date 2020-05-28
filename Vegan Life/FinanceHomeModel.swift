@@ -55,6 +55,7 @@ class FinanceHomeModel: NSObject {
             let address = jsonElement["address"] as? String ?? ""
             let phoneno = jsonElement["phoneno"] as? String ?? ""
             let emailaddress = jsonElement["emailaddress"] as? String ?? ""
+            let url = jsonElement["url"] as? String ?? ""
             let category = jsonElement["category"] as? String ?? ""
             let subcategory = jsonElement["subcategory"] as? String ?? ""
             let businessdescription = jsonElement["businessdescription"] as? String? ?? ""
@@ -64,6 +65,7 @@ class FinanceHomeModel: NSObject {
                 finance.address = address
                 finance.phoneno = phoneno
                 finance.emailaddress = emailaddress
+                finance.url = url
                 finance.category = category
                 finance.subcategory = subcategory
                 finance.businessdescription = businessdescription

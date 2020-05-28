@@ -2,8 +2,9 @@ import UIKit
 import CoreData
 
 
-class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RecipeHomeModelProtocol {
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RecipeHomeModelProtocol, UISearchBarDelegate, UISearchResultsUpdating {
    
+    @IBOutlet weak var recipeTitle: UILabel!
     
     
 
@@ -15,18 +16,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
      var dan = FavoritesViewController()
      var isLiked = false
      var heartButton = RecipeCell()
-   
-     
-    
-    
-   
-     
-    
-    
-    
     
      let searchController = UISearchController(searchResultsController: nil)
-     
+  
+    let W = UIScreen.main.bounds.width
+    let H = UIScreen.main.bounds.height
+    
 
      
     @IBOutlet var listRecipeTableView: UITableView!
@@ -52,17 +47,29 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let refresh = UIBarButtonItem.init(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.refresh(sender:)))
         
       
-       
+
     
      navigationItem.rightBarButtonItems = [add, refresh]
          
-      
-        listRecipeTableView.tableFooterView = UIView()
-        setupSearchController()
-    
        navigationItem.largeTitleDisplayMode = .always
       
-
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        navigationItem.searchController = searchController
+                      
+       // listRecipeTableView.tableHeaderView = searchController.searchBar
+        
+        searchController.searchBar.scopeButtonTitles = ["All","Brunch", "Lunch","Dinner", "Drinks", "Snacks", "Sweets"]
+        searchController.searchBar.delegate = self
+        searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Medium", size: 11.0)!], for: .normal)
+       
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.searchBar.placeholder = "Search by Recipe/Ingredients/Author"
+        
+        
+          self.listRecipeTableView.register(UITableViewCell.self, forCellReuseIdentifier: "recipeCell")
+        
             if let data = UserDefaults.standard.object(forKey: "favorites") as? Data {
             if let storedData = NSKeyedUnarchiver.unarchiveObject(with: data) as? [RecipeModel] {
                 favorites = storedData
@@ -74,9 +81,33 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             
         }
-            
-       
-       
+          
+    }
+    func applySearch(searchText: String, scope: String = "All"){
+           if searchController.searchBar.text! == "" {
+               filteredRecipe = feedItems.filter{ feedItems in
+                let RecipeCat = (scope == "All") || (feedItems.recipecategory == scope)
+                   return RecipeCat
+           
+            }
+           } else {
+                   filteredRecipe = feedItems.filter{ feedItems in
+                       let RecipeCat = (scope == "All") || (feedItems.recipecategory == scope)
+                       return RecipeCat && feedItems.recipetitle!.lowercased().contains(searchText.lowercased()) || feedItems.recipeingredients!.lowercased().contains(searchText.lowercased()) || feedItems.recipeauthor!.lowercased().contains(searchText.lowercased())
+                   }
+               }
+           self.listRecipeTableView.reloadData()
+           
+       }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let selectedScope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        applySearch(searchText: searchController.searchBar.text!,scope: selectedScope)
+    }
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        applySearch(searchText: searchController.searchBar.text!,scope: searchBar.scopeButtonTitles![selectedScope])
+        
     }
            
 
@@ -100,12 +131,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return recipes.count
-           if searchController.isActive && searchController.searchBar.text != "" {
-                   return filteredRecipe.count
-               }
-               
-               return feedItems.count
+        return filteredRecipe.count
            }
       
    
@@ -121,24 +147,26 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         var recipe: RecipeModel
         let placeholderImage = UIImage(named: "placeholderimg.png")
         myCell.imageView?.image = placeholderImage
-        if searchController.isActive && searchController.searchBar.text != "" {
-            recipe = filteredRecipe[indexPath.row]
+      // if searchController.isActive && searchController.searchBar.text != "" {
+           recipe = filteredRecipe[indexPath.row]
 
-            let url = "https://img.youtube.com/vi/\(recipe.recipekey!)/0.jpg"
-            myCell.imageView?.downloaded(from: url)
-        } else {
-            recipe = feedItems[indexPath.row]
+        
+         //  let url = "https://img.youtube.com/vi/\(recipe.recipekey!)/0.jpg"
+            //  myCell.imageView?.downloaded(from: url)
+    //  } else {
+       //     recipe = feedItems[indexPath.row]
             let url = "https://img.youtube.com/vi/\(recipe.recipekey!)/0.jpg"
             myCell.imageView?.downloaded(from: url)
         // let item: RecipeModel = feedItems[indexPath.row] as! RecipeModel
         
          
         
-        }
+       // }
            myCell.textLabel!.text = recipe.recipetitle
+          myCell.textLabel!.font = UIFont.systemFont(ofSize: 15)
            myCell.backgroundColor = UIColor.systemGreen
            
-          
+  
         
      
         
@@ -150,81 +178,28 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
-    if searchController.isActive && searchController.searchBar.text != "" {
         selectedRecipe = filteredRecipe[indexPath.row]
-        }
-      else {
-        selectedRecipe = feedItems[indexPath.row]
-        
-        //selectedRecipe = feedItems[indexPath.row] as! RecipeModel'
-    
-        }
-      
-        
-    self.performSegue(withIdentifier: "toRecipe", sender: self)
-      
+        self.performSegue(withIdentifier: "toRecipe", sender: self)
+     
     }
      func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if self.searchController.isActive && self.searchController.searchBar.text != "" {
+       if searchController.searchBar.text! == "" {
             if favorites.contains(filteredRecipe[indexPath.row]){
-        
-          return false
+            return false
             }
         }
-        else {
-            if favorites.contains(feedItems[indexPath.row]){
-                   
-                     return false
+            if favorites.contains(filteredRecipe[indexPath.row]){
+            return false
                        }
+            if favorites.contains(where: { $0.recipeid == filteredRecipe[indexPath.row].recipeid }) {
+            return false
         }
         return true
       }
    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-               let unfavorite =  UIContextualAction(style: .destructive, title: "Unfavorite") { (action, view, completionHandler) in
-                if self.searchController.isActive && self.searchController.searchBar.text != "" {
-                    if let idx = self.favorites.firstIndex(where: { $0 === self.filteredRecipe[indexPath.row] }) {
-                       self.favorites.remove(at: idx)
-                       self.save()
-                       self.isLiked = false
-                       print("Tinki")
-                        DispatchQueue.main.async
-                        {
-
-                            let alert = UIAlertController(title: "Recipe Removed", message: "\(self.filteredRecipe[indexPath.row].recipetitle!) removed from favorites 💔", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                        }
-                       completionHandler(true)
-                     
-                        
-                    
-                    }
-                
-                } else {
-                    if let idx = self.favorites.firstIndex(where: { $0 === self.feedItems[indexPath.row] }) {
-                    self.favorites.remove(at: idx)
-                        self.save()
-                        self.isLiked = false
-                    print("Danyaal")
-                        
-                    DispatchQueue.main.async
-                                           {
-
-                                               let alert = UIAlertController(title: "Recipe Removed", message: "\(self.feedItems[indexPath.row].recipetitle!) removed from favorites 💔", preferredStyle: .alert)
-                                           alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                                           self.present(alert, animated: true, completion: nil)
-                                           }
-                     completionHandler(true)
-                    
-                     }
-                    }
-               
-                
-                
-            }
               let favorite =  UIContextualAction(style: .destructive, title: "Favourite") { (action, view, completionHandler) in
-               if self.searchController.isActive && self.searchController.searchBar.text != "" {
+               if self.searchController.searchBar.text != "" {
                           self.favorites.append(self.filteredRecipe[indexPath.row])
                                  print(self.favorites)
                 self.save()
@@ -242,14 +217,14 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                
            
                          else {
-                          self.favorites.append(self.feedItems[indexPath.row])
+                          self.favorites.append(self.filteredRecipe[indexPath.row])
                                 print(self.favorites)
                                 self.isLiked = true
                 self.save()
                 DispatchQueue.main.async
                                        {
 
-                                           let alert = UIAlertController(title: "Recipe Added", message: "\(self.feedItems[indexPath.row].recipetitle!) added to favorites ❤️", preferredStyle: .alert)
+                                           let alert = UIAlertController(title: "Recipe Added", message: "\(self.filteredRecipe[indexPath.row].recipetitle!) added to favorites ❤️", preferredStyle: .alert)
                                        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                                        self.present(alert, animated: true, completion: nil)
                                        }
@@ -264,58 +239,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                }
                    favorite.backgroundColor = UIColor.lightGray
                    favorite.image = UIImage(systemName: "heart")
-                 
-
-      
-   
-                   
-              
-
-                 if self.searchController.isActive && self.searchController.searchBar.text != "" {
-                 if let idx = self.favorites.firstIndex(where: { $0 === self.filteredRecipe[indexPath.row] }) {
-                    
-                 unfavorite.backgroundColor = UIColor.red
-                 unfavorite.image = UIImage(systemName: "heart.fill")
-                    
-                
-                    
-
-            let unfav = UISwipeActionsConfiguration(actions: [unfavorite])
-                 return unfav
-               
-                    }
-            
-                 } else {
-                       if favorites.contains(feedItems[indexPath.row]) {
-                        if let idx = self.favorites.firstIndex(where: { $0 === self.feedItems[indexPath.row] }) {
-                                 unfavorite.backgroundColor = UIColor.red
-                                 unfavorite.image = UIImage(systemName: "heart.fill")
-                                 let unfav = UISwipeActionsConfiguration(actions: [unfavorite])
-                                 return unfav
-                        }
-
-                    }
-                    
-                   
-        
-            
-        }
-        if favorites.contains(where: { $0.recipeid == feedItems[indexPath.row].recipeid }) {
-           unfavorite.backgroundColor = UIColor.red
-           unfavorite.image = UIImage(systemName: "heart.fill")
-           let unfav = UISwipeActionsConfiguration(actions: [unfavorite])
-           return unfav
-                                  } else {
-                                       // not
-                                  }
-        let fav = UISwipeActionsConfiguration(actions: [favorite])
-        return fav
+                   let fav = UISwipeActionsConfiguration(actions: [favorite])
+                   return fav
                   
               
             
     }
-
-   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toRecipe"){
             let VVC = segue.destination as? VideoViewController
@@ -330,28 +259,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
     
         
-    }
-    func setupSearchController() {
-           definesPresentationContext = true
-           searchController.dimsBackgroundDuringPresentation = false
-           searchController.searchResultsUpdater = self
-           searchController.searchBar.placeholder = "Search by Recipe/Ingredients/Author"
-           searchController.hidesNavigationBarDuringPresentation = false
-           searchController.automaticallyShowsCancelButton = true
-           searchController.searchBar.tintColor = UIColor.init(red: 116/255, green: 131/255, blue: 91/255, alpha: 1)
-    
-          
-           
-           listRecipeTableView.tableHeaderView = searchController.searchBar
-       }
-    func filterRowsForSearchedText(_ searchText: String) {
-            filteredRecipe = feedItems.filter({( recipe : RecipeModel) -> Bool in
-        return (recipe.recipetitle!.lowercased().contains(searchText.lowercased())||recipe.recipeingredients!.lowercased().contains(searchText.lowercased())||recipe.recipeauthor!.lowercased().contains(searchText.lowercased()))
- 
-             
-        })
-            self.listRecipeTableView.reloadData()
-    
     }
     func save(){
               let data = NSKeyedArchiver.archivedData(withRootObject: favorites)
@@ -374,23 +281,18 @@ extension UIImageView {
                 else { return }
             DispatchQueue.main.async(){
                 self.image = image
+                
               
                 
         }
         }.resume()
 }
-    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
+    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
         guard let url = URL(string: link) else { return }
         downloaded(from: url, contentMode: mode)
         }
      
 }
-extension FirstViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        if let term = searchController.searchBar.text {
-            filterRowsForSearchedText(term)
-        }
-    }
-}
+
 
 

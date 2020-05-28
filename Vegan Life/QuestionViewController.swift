@@ -42,6 +42,8 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet weak var questionProgressView: UIProgressView!
     
+    let W = UIScreen.main.bounds.width
+    let H = UIScreen.main.bounds.height
     
     
     
@@ -155,31 +157,61 @@ class QuestionViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        
+        questionLabel.frame.size.width = W * 0.9
+        questionLabel.center.x = W * 0.5
+        questionLabel.frame.size.height = H * 0.1
+        questionLabel.center.y = H * 0.2
+        
+        
+        
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.systemTeal
         singleButton1.backgroundColor = UIColor.init(red: 48/255, green: 155/255, blue: 255/255, alpha: 1)
               singleButton1.layer.cornerRadius = 25.0
               singleButton1.tintColor = UIColor.white
+        singleButton1.frame.size.width = W * 0.9
+        singleButton1.center.x = W * 0.5
+        singleButton1.frame.size.height = H * 0.1
+        singleButton1.center.y = H * 0.3
 
         singleButton2.backgroundColor = UIColor.init(red: 48/255, green: 155/255, blue: 255/255, alpha: 1)
                      singleButton2.layer.cornerRadius = 25.0
                      singleButton2.tintColor = UIColor.white
+        singleButton2.frame.size.width = W * 0.9
+        singleButton2.center.x = W * 0.5
+        singleButton2.frame.size.height = H * 0.1
+        singleButton2.center.y = H * 0.45
+
 
         singleButton3.backgroundColor = UIColor.init(red: 48/255, green: 155/255, blue: 255/255, alpha: 1)
                      singleButton3.layer.cornerRadius = 25.0
                      singleButton3.tintColor = UIColor.white
+        singleButton3.frame.size.width = W * 0.9
+        singleButton3.center.x = W * 0.5
+        singleButton3.frame.size.height = H * 0.1
+        singleButton3.center.y = H * 0.6
+
 
         singleButton4.backgroundColor = UIColor.init(red: 48/255, green: 155/255, blue: 255/255, alpha: 1)
                      singleButton4.layer.cornerRadius = 25.0
                      singleButton4.tintColor = UIColor.white
+        singleButton4.frame.size.width = W * 0.9
+        singleButton4.center.x = W * 0.5
+        singleButton4.frame.size.height = H * 0.1
+        singleButton4.center.y = H * 0.75
 
+        
+        
+        
+        
         
         // Do any additional setup after loading the view.
         updateUI()
         
     }
     func updateUI() {
-        singleStackView .isHidden = true
+       // singleStackView .isHidden = true
         multipleStackView .isHidden = true
         rangedStackView .isHidden = true
         
@@ -208,7 +240,7 @@ class QuestionViewController: UIViewController {
     }
     
     func updateSingleStack(using answers: [Answer]){
-        singleStackView .isHidden = false
+        // singleStackView .isHidden = false
         singleButton1.setTitle(answers[0].text, for: .normal)
         singleButton2.setTitle(answers[1].text, for: .normal)
         singleButton3.setTitle(answers[2].text, for: .normal)

@@ -56,6 +56,7 @@ class HolidayHomeModel: NSObject{
             let address = jsonElement["address"] as? String,
             let phoneno = jsonElement["phoneno"] as? String,
             let emailaddress = jsonElement["emailaddress"] as? String,
+            let url = jsonElement["url"] as? String,
             let category = jsonElement["category"] as? String,
             let subcategory = jsonElement["subcategory"] as? String,
             let businessdescription = jsonElement["businessdescription"] as? String
@@ -65,6 +66,7 @@ class HolidayHomeModel: NSObject{
                 holiday.address = address
                 holiday.phoneno = phoneno
                 holiday.emailaddress = emailaddress
+                holiday.url = url 
                 holiday.category = category
                 holiday.subcategory = subcategory
                 holiday.businessdescription = businessdescription

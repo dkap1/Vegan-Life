@@ -24,6 +24,11 @@ class ClothingDetailsViewController: UIViewController {
     
     @IBOutlet weak var cdetailsDescription: UITextView!
     
+    @IBOutlet weak var cdetailsUrl: UITextView!
+    
+    let W = UIScreen.main.bounds.width
+    let H = UIScreen.main.bounds.height
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +39,7 @@ class ClothingDetailsViewController: UIViewController {
         cdetailsAddress.text = selectedClothing?.address
         cdetailsPhone.text = selectedClothing?.phoneno
         cdetailsEmail.text = selectedClothing?.emailaddress
-        cdetailsCategory.text = selectedClothing?.category
+        cdetailsUrl.text = selectedClothing?.url
         cdetailsDescription.text = selectedClothing?.businessdescription
  
         
@@ -42,10 +47,41 @@ class ClothingDetailsViewController: UIViewController {
         cdetailsAddress.backgroundColor = UIColor.init(red: 254/255, green: 216/255, blue: 177/255, alpha: 1)
         cdetailsPhone.backgroundColor = UIColor.init(red: 254/255, green: 216/255, blue: 177/255, alpha: 1)
         cdetailsEmail.backgroundColor = UIColor.init(red: 254/255, green: 216/255, blue: 177/255, alpha: 1)
-        cdetailsCategory.backgroundColor = UIColor.init(red: 254/255, green: 216/255, blue: 177/255, alpha: 1)
+        cdetailsUrl.backgroundColor = UIColor.init(red: 254/255, green: 216/255, blue: 177/255, alpha: 1)
         cdetailsDescription.backgroundColor = UIColor.init(red: 254/255, green: 216/255, blue: 177/255, alpha: 1)
        
+        cdetailsName.frame.size.width = W * 1
+        cdetailsName.center.x = W * 0.5
+        cdetailsName.frame.size.height = H * 0.3
+        cdetailsName.center.y = H * 0.2
+              
+         cdetailsAddress.frame.size.width = W * 1
+         cdetailsAddress.center.x = W * 0.5
+         cdetailsAddress.frame.size.height = H * 0.1
+         cdetailsAddress.center.y = H * 0.35
+              
+         cdetailsPhone.frame.size.width = W * 1
+         cdetailsPhone.center.x = W * 0.5
+         cdetailsPhone.frame.size.height = H * 0.1
+         cdetailsPhone.center.y = H * 0.42
+              
+         cdetailsEmail.frame.size.width = W * 1
+         cdetailsEmail.center.x = W * 0.5
+         cdetailsEmail.frame.size.height = H * 0.1
+         cdetailsEmail.center.y = H * 0.5
+              
+         cdetailsUrl.frame.size.width = W * 1
+         cdetailsUrl.center.x = W * 0.5
+         cdetailsUrl.frame.size.height = H * 0.05
+         cdetailsUrl.center.y = H * 0.45
+              
+         cdetailsDescription.frame.size.width = W * 1
+         cdetailsDescription.center.x = W * 0.5
+         cdetailsDescription.frame.size.height = H * 0.1
+         cdetailsDescription.center.y = H * 0.6
         
+          
+          
         
         
         // Do any additional setup after loading the view.

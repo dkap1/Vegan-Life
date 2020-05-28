@@ -18,13 +18,29 @@ class ResultsViewController: UIViewController {
     
     var responses: [Answer]!
     
-    
+    let W = UIScreen.main.bounds.width
+    let H = UIScreen.main.bounds.height
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      
+        resultAnswerLabel.frame.size.width = W * 0.5
+        resultAnswerLabel.center.x = W * 0.5
+        resultAnswerLabel.frame.size.height = H * 0.1
+        resultAnswerLabel.center.y = H * 0.2
+        
+        resultEmoji.frame.size.width = W * 0.5
+        resultEmoji.center.x = W * 0.51
+        resultEmoji.frame.size.height = H * 0.1
+        resultEmoji.center.y = H * 0.3
+        
+        resultDefinitionLabel.frame.size.width = W * 0.9
+        resultDefinitionLabel.center.x = W * 0.5
+        resultDefinitionLabel.frame.size.height = H * 0.5
+        
+        resultDefinitionLabel.center.y = H * 0.55
+        
         
         self.view.backgroundColor = UIColor.systemTeal
         

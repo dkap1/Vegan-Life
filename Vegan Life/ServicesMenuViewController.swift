@@ -9,6 +9,7 @@
 import UIKit
 
 class ServicesMenuViewController: UIViewController {
+    
 
     @IBAction func menuFinance(_ sender: AnyObject) {
         self.performSegue(withIdentifier: "FinanceSegue", sender: self)
@@ -37,6 +38,11 @@ class ServicesMenuViewController: UIViewController {
     
     @IBOutlet weak var requestButton: UIButton!
     
+    
+    let W = UIScreen.main.bounds.width
+    let H = UIScreen.main.bounds.height
+
+    
     override func viewDidLoad() {
          self.view.backgroundColor = UIColor.init(red: 202/255, green: 236/255, blue: 84/255, alpha: 1)
         super.viewDidLoad()
@@ -45,22 +51,43 @@ class ServicesMenuViewController: UIViewController {
         financeButton.backgroundColor = UIColor.init(red: 255/255, green: 25/255, blue: 50/255, alpha: 1)
         financeButton.layer.cornerRadius = 25.0
         financeButton.tintColor = UIColor.white
-        
+        financeButton.frame.size.width = W * 0.9
+        financeButton.center.x = W * 0.5
+        financeButton.frame.size.height = H * 0.07
+        financeButton.center.y = H * 0.25
+              
         clothingButton.backgroundColor = UIColor.init(red: 249/255, green: 162/255, blue: 0/255, alpha: 1)
         clothingButton.layer.cornerRadius = 25.0
         clothingButton.tintColor = UIColor.white
-        
+        clothingButton.frame.size.width = W * 0.9
+        clothingButton.center.x = W * 0.5
+        clothingButton.frame.size.height = H * 0.07
+        clothingButton.center.y = H * 0.35
+     
+
         travelButton.backgroundColor = UIColor.init(red: 128/255, green: 11/255, blue: 86/255, alpha: 1)
         travelButton.layer.cornerRadius = 25.0
         travelButton.tintColor = UIColor.white
+        travelButton.frame.size.width = W * 0.9
+        travelButton.center.x = W * 0.5
+        travelButton.frame.size.height = H * 0.07
+        travelButton.center.y = H * 0.45
         
         shoppingButton.backgroundColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
         shoppingButton.layer.cornerRadius = 25.0
         shoppingButton.tintColor = UIColor.white
+        shoppingButton.frame.size.width = W * 0.9
+        shoppingButton.center.x = W * 0.5
+        shoppingButton.frame.size.height = H * 0.07
+        shoppingButton.center.y = H * 0.55
         
         requestButton.backgroundColor = UIColor.init(red:134/255, green: 136/255, blue: 138/255, alpha: 1)
                requestButton.layer.cornerRadius = 25.0
                requestButton.tintColor = UIColor.white
+        requestButton.frame.size.width = W * 0.9
+        requestButton.center.x = W * 0.5
+        requestButton.frame.size.height = H * 0.07
+        requestButton.center.y = H * 0.65
         
         
         

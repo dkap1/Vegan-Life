@@ -14,6 +14,7 @@ class FinanceModel: NSObject {
     var address: String?
     var phoneno: String?
     var emailaddress: String?
+    var url: String?
     var category: String?
     var subcategory: String?
     var businessdescription: String?
@@ -22,19 +23,20 @@ class FinanceModel: NSObject {
     override init() {
         
     }
-    init(businessid: String, name: String, address: String, phoneno: String, emailaddress: String, category: String,
+    init(businessid: String, name: String, address: String, phoneno: String, emailaddress: String, url: String, category: String,
          subcategory: String, businessdescription: String) {
         self.businessid = businessid
         self.name = name
         self.address = address
         self.phoneno = phoneno
         self.emailaddress = emailaddress
+        self.url = url
         self.category = category
         self.subcategory = subcategory
         self.businessdescription = businessdescription
     }
      override var description: String {
-            return "businessid: \(businessid), name: \(name), address: \(address), phoneno: \(phoneno), emailaddress: \(emailaddress), category: \(category), subcategory:\(subcategory),businessdescription: \(businessdescription)"
+            return "businessid: \(businessid), name: \(name), address: \(address), phoneno: \(phoneno), emailaddress: \(emailaddress), url: \(url), category: \(category), subcategory:\(subcategory),businessdescription: \(businessdescription)"
         }
     }
 

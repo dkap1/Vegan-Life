@@ -21,7 +21,13 @@ class TravelDetailViewController: UIViewController {
     
     @IBOutlet weak var travelDetailsCategory: UILabel!
     
+    @IBOutlet weak var travelDetailsUrl: UITextView!
+    
+    
     @IBOutlet weak var travelDetailsDescription: UITextView!
+    
+    let H = UIScreen.main.bounds.height
+    let W = UIScreen.main.bounds.width
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +43,7 @@ class TravelDetailViewController: UIViewController {
         
         travelDetailsEmail.text = selectedHoliday?.emailaddress
         
-        travelDetailsCategory.text = selectedHoliday?.category
+        travelDetailsUrl.text = selectedHoliday?.url
         
         travelDetailsDescription.text = selectedHoliday?.businessdescription
         
@@ -49,11 +55,48 @@ class TravelDetailViewController: UIViewController {
         
         travelDetailsEmail.backgroundColor = UIColor.init(red:177/255, green: 156/255, blue: 217/255, alpha: 1)
         
-        travelDetailsCategory.backgroundColor = UIColor.init(red:177/255, green: 156/255, blue: 217/255, alpha: 1)
+        travelDetailsUrl.backgroundColor = UIColor.init(red:177/255, green: 156/255, blue: 217/255, alpha: 1)
         
         travelDetailsDescription.backgroundColor = UIColor.init(red:177/255, green: 156/255, blue: 217/255, alpha: 1)
         
-     
+       travelDetailsName.frame.size.width = W * 1
+       travelDetailsName.center.x = W * 0.5
+       travelDetailsName.frame.size.height = H * 0.3
+       travelDetailsName.center.y = H * 0.2
+       
+       travelDetailsAddress.frame.size.width = W * 1
+       travelDetailsAddress.center.x = W * 0.5
+       travelDetailsAddress.frame.size.height = H * 0.1
+       travelDetailsAddress.center.y = H * 0.35
+       
+       travelDetailsPhone.frame.size.width = W * 1
+       travelDetailsPhone.center.x = W * 0.5
+       travelDetailsPhone.frame.size.height = H * 0.1
+       travelDetailsPhone.center.y = H * 0.42
+       
+       travelDetailsEmail.frame.size.width = W * 1
+       travelDetailsEmail.center.x = W * 0.5
+       travelDetailsEmail.frame.size.height = H * 0.1
+       travelDetailsEmail.center.y = H * 0.5
+       
+       travelDetailsUrl.frame.size.width = W * 1
+       travelDetailsUrl.center.x = W * 0.5
+       travelDetailsUrl.frame.size.height = H * 0.05
+       travelDetailsUrl.center.y = H * 0.45
+       
+       travelDetailsDescription.frame.size.width = W * 1
+       travelDetailsDescription.center.x = W * 0.5
+       travelDetailsDescription.frame.size.height = H * 0.1
+       travelDetailsDescription.center.y = H * 0.6
+                 
+                 
+                 
+                 
+        
+   
+        
+        
+        
         // Do any additional setup after loading the view.
     }
     

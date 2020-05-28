@@ -43,6 +43,7 @@ class ClothingViewController: UIViewController, UITableViewDataSource, UITableVi
             searchController.searchResultsUpdater = self
             searchController.dimsBackgroundDuringPresentation = false
             definesPresentationContext = true
+            
                    
             listClothingTableView.tableHeaderView = searchController.searchBar
                
@@ -52,8 +53,6 @@ class ClothingViewController: UIViewController, UITableViewDataSource, UITableVi
                  
                    
             self.listClothingTableView.register(UITableViewCell.self, forCellReuseIdentifier: "ClothingCell")
-            
-            
             
         }
         func itemsDownloaded(items: NSArray) {
